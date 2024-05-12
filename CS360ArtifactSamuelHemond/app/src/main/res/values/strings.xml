@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Daily Weight Management</string>
+    <string name="app_welcome"> Welcome To Daily Weight Management</string>
+    <string name="username_credentials">Username</string>
+    <string name="password_credentials">Password</string>
+    <string name="login_button">Login</string>
+    <string name="new_user_button">Create New Account</string>
+    <string name="contact_me">Provide SMS \n Permissions</string>
+    <string name="logout">Logout</string>
+    <string name="new_weight">Input new weight \n Or set goal Weight</string>
+    <string name="goal_weight">Goal Weight:\u0020</string>
+    <string name="goal_weight2">\u0020LBS</string>
+    <string name="delete_row">Delete</string>
+    <string name="date">Date: </string>
+    <string name="weight">Weight: </string>
+    <string name="query_weight">Please enter weight below</string>
+    <string name="query_date">Please enter date below</string>
+    <string name="query_goal_weight">Please enter goal weight below</string>
+    <string name="confirm_date_weight">Create or update \n daily weight</string>
+    <string name="confirm_goal_weight">Create or update \n goal weight</string>
+    <string name="phone_number_prompt">Please enter phone number</string>
+    <string name="confirm_phone_number">Submit phone number</string>
+    <string name="current_phone_number">Current phone number: \u0020</string>
+
+</resources>
