@@ -26,6 +26,7 @@ public class DailyWeight {
     @ColumnInfo(name = "user_id")
     private Long mUserId;
 
+    //Setters and getters
     public Long getId() {
         return mId;
     }

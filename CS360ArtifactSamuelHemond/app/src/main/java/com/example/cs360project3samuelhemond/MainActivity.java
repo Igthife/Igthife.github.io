@@ -60,17 +60,17 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(int index) {//Delete row from recycle view and update view
                 Log.i(TAG, "Delete Weight at date: " + weights.get(index).getDate());
                 weightRepository.deleteDailyWeight(weights.get(index));
-                displayData();
+                refreshDisplayData();
                 recycleAdapter.notifyDataSetChanged();
             }
         });
         recyclerView.setAdapter(recycleAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-        displayData();//refresh lists
+        refreshDisplayData();//refresh lists
     }
 
     //refresh lists
-    private void displayData() {
+    private void refreshDisplayData() {
         List<DailyWeight> tmp = weightRepository.getDailyWeightByUserId(userID);
         Log.i(TAG, "List Length: " + tmp.size());
         //clear weights and remake with database

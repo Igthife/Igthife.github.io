@@ -64,7 +64,7 @@ public class InputActivity extends AppCompatActivity {
 
         }else{//creates toast for user and log for invalid input
             Log.i(TAG, "Invalid Input");
-            Toast.makeText(this, "Invalid Input", Toast.LENGTH_LONG).show();
+            Toast.makeText(InputActivity.this, "Invalid Input", Toast.LENGTH_LONG).show();
         }
     }
 

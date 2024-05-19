@@ -21,6 +21,7 @@ public class GoalWeight {
     @ColumnInfo(name = "user_id")
     private Long mUserId;
 
+    //Setters and getters
     public Long getId() {
         return mId;
     }

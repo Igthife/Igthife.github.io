@@ -31,7 +31,7 @@ public class WeightRepository {
     //singleton pattern with getInstance public and constructor private
     public static WeightRepository getInstance(Context context) {
         if (mWeightRepository == null) {
-            mWeightRepository = new WeightRepository(context);
+            mWeightRepository = new WeightRepository(context); //FIXME context.getApplicationContext()
         }
         return mWeightRepository;
     }

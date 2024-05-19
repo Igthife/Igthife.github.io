@@ -22,6 +22,7 @@ public class User {
     @ColumnInfo(name = "userPhoneNumber")
     private String userPhoneNumber;
 
+    //Getters and Setters
     public Long getId() {
         return mId;
     }

@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         }else{  //user does not exist
             Log.i(TAG, "User Does Not Exists");
-            Toast.makeText(this, "Username or Password Incorrect", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, "Username or Password Incorrect", Toast.LENGTH_LONG).show();
         }
 
     }
@@ -57,10 +57,10 @@ public class LoginActivity extends AppCompatActivity {
 
         }else if(username.length() == 0 || password.length() == 0) {
             Log.i(TAG, "One Or More Input Fields Empty");
-            Toast.makeText(this, "One Or More Input Fields Empty", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, "One Or More Input Fields Empty", Toast.LENGTH_LONG).show();
         }else{
             Log.i(TAG, "User Already Exists");
-            Toast.makeText(this, "User Already Exists", Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this, "User Already Exists", Toast.LENGTH_LONG).show();
         }
     }
 
