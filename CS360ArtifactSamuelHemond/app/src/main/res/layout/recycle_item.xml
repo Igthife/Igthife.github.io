@@ -46,7 +46,7 @@
         app:layout_constraintStart_toEndOf="@+id/weightValue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.15"
+        app:layout_constraintWidth_percent="0.10"
         style="@style/scrollMenu"/>
 
 
@@ -60,7 +60,7 @@
         app:layout_constraintStart_toEndOf="@+id/dateText"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintWidth_percent="0.20"
         style="@style/scrollMenu"/>
 
     <Button
@@ -73,7 +73,7 @@
         app:layout_constraintStart_toEndOf="@+id/dateValue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintWidth_percent="0.2"
+        app:layout_constraintWidth_percent="0.23"
         style="@style/buttonDelete"/>
 
 
