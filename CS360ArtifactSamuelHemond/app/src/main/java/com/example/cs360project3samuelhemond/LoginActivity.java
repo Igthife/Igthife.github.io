@@ -20,10 +20,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_login);
         //setup views
-        userNameView = findViewById(R.id.usernameInput);
-        passwordView = findViewById(R.id.passwordInput);
+        userNameView = findViewById(R.id.usernameInputLogin);
+        passwordView = findViewById(R.id.passwordInputLogin);
+
+        //get singleton for database
         weightRepository = WeightRepository.getInstance(this);
     }
 
@@ -46,7 +48,13 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    //uses login edit texts and creates user if inputs are 1 or longer and account doesn't exist
+    //method to open the register user activity
+    public void openRegisterActivity(View view){
+        Intent intent = new Intent(this, RegisterUserActivity.class);
+        startActivity(intent);      //send intent without user info
+    }
+
+    /*//uses login edit texts and creates user if inputs are 1 or longer and account doesn't exist
     public void newUserAttempt(View view){
         String username = userNameView.getText().toString();
         String password = passwordView.getText().toString();
@@ -78,5 +86,5 @@ public class LoginActivity extends AppCompatActivity {
         initGoalWeight.setWeight(0);
         initGoalWeight.setUserId(newUser.getId());
         weightRepository.addGoalWeight(initGoalWeight);
-    }
+    }*/
 }

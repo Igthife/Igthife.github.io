@@ -57,8 +57,10 @@ public class WeightRepository {
         return mUserDao.getUserById(id);
     }
 
-    public User getUserByName(String userName){
-        return mUserDao.getUserByName(userName);
+    //method to safely check if user exists without returning user FIXME test
+    public Boolean checkUserByName(String userName){
+
+        return (null == mUserDao.getUserByName(userName));
     }
 
     public User getUser(String userName, String password){

@@ -37,10 +37,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //get views from xml
         goalWeightTextView = findViewById(R.id.goalWeight);
         recyclerView = findViewById(R.id.weightTable);
 
+        //get singleton for database
         weightRepository = WeightRepository.getInstance(this);
+
         //retrieve user ID from intent for uses in program
         Intent intent = getIntent();
         userID = intent.getLongExtra("userID", 0);

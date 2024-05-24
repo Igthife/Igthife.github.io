@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">Daily Weight Management</string>
-    <string name="app_welcome"> Welcome To Daily Weight Management</string>
+    <string name="app_welcome">Welcome To \n Daily Weight Management</string>
+    <string name="new_user_title">Register New User</string>
     <string name="username_credentials">Username</string>
     <string name="password_credentials">Password</string>
+    <string name="phone_number_credentials">Phone Number (Optional)</string>
     <string name="login_button">Login</string>
-    <string name="new_user_button">Create New Account</string>
+    <string name="new_user_button">New User</string>
     <string name="contact_me">Provide SMS \n Permissions</string>
     <string name="logout">Logout</string>
     <string name="new_weight">Input new weight \n Or set goal Weight</string>

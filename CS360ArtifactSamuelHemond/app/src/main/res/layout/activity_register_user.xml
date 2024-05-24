@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterUserActivity">
+
+    <TextView
+        android:id="@+id/welcomeTextLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_user_title"
+        style="@style/titleText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"/>
+
+    <TextView
+        android:id="@+id/usernamePromptRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/username_credentials"
+        app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/welcomeTextLogin"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/usernameInputRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/usernamePromptRegister"
+        app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/usernamePromptRegister" />
+
+    <TextView
+        android:id="@+id/passwordPromptRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/password_credentials"
+        app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/usernameInputRegister"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/passwordInputRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        app:layout_constraintLeft_toLeftOf="@id/usernamePromptRegister"
+        app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/passwordPromptRegister" />
+
+    <TextView
+        android:id="@+id/phoneNumberPromptRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_number_credentials"
+        app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/passwordInputRegister"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:id="@+id/phoneNumberInputRegister"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="none"
+        android:onClick="checkPermissions"
+        app:layout_constraintLeft_toLeftOf="@id/usernamePromptRegister"
+        app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumberPromptRegister" />
+
+    <Button
+        android:id="@+id/newUserButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_user_button"
+        android:onClick="newUserAttempt"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/phoneNumberInputRegister"
+        android:layout_margin="15dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

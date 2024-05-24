@@ -8,10 +8,11 @@
 
 
     <TextView
-        android:id="@+id/welcomeText"
+        android:id="@+id/welcomeTextLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_welcome"
+        style="@style/titleText"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -19,38 +20,39 @@
         android:layout_marginBottom="100dp"/>
 
     <TextView
-        android:id="@+id/usernamePrompt"
+        android:id="@+id/usernamePromptLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/username_credentials"
-        app:layout_constraintLeft_toLeftOf="@id/welcomeText"
-        app:layout_constraintTop_toBottomOf="@id/welcomeText"
+        app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/welcomeTextLogin"
         android:layout_marginTop="50dp"/>
 
     <EditText
-        android:id="@+id/usernameInput"
+        android:id="@+id/usernameInputLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="@id/usernamePrompt"
-        app:layout_constraintRight_toRightOf="@id/welcomeText"
-        app:layout_constraintTop_toBottomOf="@id/usernamePrompt" />
+        app:layout_constraintLeft_toLeftOf="@id/usernamePromptLogin"
+        app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/usernamePromptLogin" />
 
     <TextView
-        android:id="@+id/passwordPrompt"
+        android:id="@+id/passwordPromptLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password_credentials"
-        app:layout_constraintLeft_toLeftOf="@id/welcomeText"
-        app:layout_constraintTop_toBottomOf="@id/usernameInput"
+        app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/usernameInputLogin"
         android:layout_marginTop="50dp"/>
+
     <EditText
-        android:id="@+id/passwordInput"
+        android:id="@+id/passwordInputLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
-        app:layout_constraintLeft_toLeftOf="@id/usernamePrompt"
-        app:layout_constraintRight_toRightOf="@id/welcomeText"
-        app:layout_constraintTop_toBottomOf="@id/passwordPrompt" />
+        app:layout_constraintLeft_toLeftOf="@id/usernamePromptLogin"
+        app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
+        app:layout_constraintTop_toBottomOf="@id/passwordPromptLogin" />
 
     <Button
         android:id="@+id/loginButton"
@@ -60,15 +62,15 @@
         android:onClick="loginAttempt"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordInput"
+        app:layout_constraintTop_toBottomOf="@id/passwordInputLogin"
         android:layout_margin="15dp"/>
 
     <Button
-        android:id="@+id/newUserButton"
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/new_user_button"
-        android:onClick="newUserAttempt"
+        android:onClick="openRegisterActivity"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/loginButton"
