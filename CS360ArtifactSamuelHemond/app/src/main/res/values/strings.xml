@@ -5,8 +5,10 @@
     <string name="username_credentials">Username</string>
     <string name="password_credentials">Password</string>
     <string name="phone_number_credentials">Phone Number (Optional)</string>
+    <string name="goal_weight_credentials">Goal Weight (Optional)</string>
     <string name="login_button">Login</string>
     <string name="new_user_button">New User</string>
+    <string name="register_new_user_button">Register</string>
     <string name="contact_me">Provide SMS \n Permissions</string>
     <string name="logout">Logout</string>
     <string name="new_weight">Input new weight \n Or set goal Weight</string>

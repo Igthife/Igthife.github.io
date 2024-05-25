@@ -121,8 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, PhoneNumberActivity.class);
                 intent.putExtra("userID", userID);//pass user id
                 startActivity(intent);
-            }
-            else {//permission denied program continues to run.
+            } else {//permission denied program continues to run.
                 Toast.makeText(MainActivity.this, "SMS Permission Denied", Toast.LENGTH_SHORT) .show();
             }
         }
