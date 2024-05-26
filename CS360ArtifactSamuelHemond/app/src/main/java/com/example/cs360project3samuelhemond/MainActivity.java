@@ -20,14 +20,15 @@ import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    //logging tag
     private static final String TAG = "MainActivity";
-
+    //database
     WeightRepository weightRepository;
-    Long userID;//user idea to search database
-    //setup views
+    //user idea to search database
+    Long userID;
+    //declare views
     TextView goalWeightTextView;
     RecyclerView recyclerView;
-
     //resources for recycler view
     ArrayList<DailyWeight> weights;
     RecycleAdapter recycleAdapter;
@@ -54,18 +55,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         //set user goal weight to text view
-        goalWeightTextView.setText(getString(R.string.goal_weight) + weightRepository.getGoalWeightByUserId(userID).getWeight() + getString(R.string.goal_weight2));
+        String goalWeight = getString(R.string.goal_weight) + weightRepository.getGoalWeightByUserId(userID).getWeight() + getString(R.string.goal_weight2);
+        goalWeightTextView.setText(goalWeight);
 
         //setup and use methods for the recyclerview
-        weights = new ArrayList<DailyWeight>();
-        recycleAdapter = new RecycleAdapter(MainActivity.this, weights, new ClickListener() {
-            @Override
-            public void onClick(int index) {//Delete row from recycle view and update view
-                Log.i(TAG, "Delete Weight at date: " + weights.get(index).getDate());
-                weightRepository.deleteDailyWeight(weights.get(index));
-                refreshDisplayData();
-                recycleAdapter.notifyDataSetChanged();
-            }
+        weights = new ArrayList<>();
+        recycleAdapter = new RecycleAdapter(MainActivity.this, weights, index -> {//Delete row from recycle view and update view
+            Log.i(TAG, "Delete Weight at date: " + weights.get(index).getDate());
+            weightRepository.deleteDailyWeight(weights.get(index));
+            refreshDisplayData();
+            //changed to remove single item
+            recycleAdapter.notifyItemRemoved(index);
         });
         recyclerView.setAdapter(recycleAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
@@ -79,9 +79,7 @@ public class MainActivity extends AppCompatActivity {
         //clear weights and remake with database
         weights.clear();
         if(tmp.size() > 0) {
-            for (int i = 0; i < tmp.size(); i++) {
-                weights.add(tmp.get(i));
-            }
+            weights.addAll(tmp);
         }
         //Sort list by date
         weights.sort(Comparator.comparing(DailyWeight::getDate).reversed());
@@ -101,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{"android.permission.SEND_SMS"}, 1);
         }else{//If already given opens phone number activity
             Toast.makeText(MainActivity.this, "SMS Already Permission Granted", Toast.LENGTH_SHORT) .show();
-            Intent intent = new Intent(this, PhoneNumberActivity.class);
+            Intent intent = new Intent(this, PhoneNumberInputActivity.class);
             intent.putExtra("userID", userID);//pass user id
             startActivity(intent);
         }
@@ -118,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == 1) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) { //if permission is granted
-                Intent intent = new Intent(this, PhoneNumberActivity.class);
+                Intent intent = new Intent(this, PhoneNumberInputActivity.class);
                 intent.putExtra("userID", userID);//pass user id
                 startActivity(intent);
             } else {//permission denied program continues to run.

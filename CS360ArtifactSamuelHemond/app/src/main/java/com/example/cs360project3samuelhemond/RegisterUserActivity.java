@@ -32,7 +32,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
-
+        //find view from xml
         userNameView = findViewById(R.id.usernameInputRegister);
         passwordView = findViewById(R.id.passwordInputRegister);
         goalWeightView = findViewById(R.id.goalWeightInputRegister);
@@ -62,33 +62,27 @@ public class RegisterUserActivity extends AppCompatActivity {
         String weight = goalWeightView.getText().toString();
         String phoneNumber = phoneNumberView.getText().toString();
 
-        if(username == null || password == null) {      //check for null shouldn't occur
-
-            Toast.makeText(RegisterUserActivity.this, "One Or More Input Fields Are Empty", Toast.LENGTH_LONG).show();
-
-        }else if(weightRepository.getUser(username, password) == null && username.length() > 0 && password.length() > 0){       //check if good to create user TODO enhancement 2 change to only check username
+        if(weightRepository.getUser(username, password) == null && username.length() > 0 && password.length() > 0){       //check if good to create user TODO enhancement 2 change to only check username
 
             if(!validateGoalWeightFormat(weight)){ //Check for valid weight
                 weight = null;
             }
 
-            if(phoneNumber != null){
-                phoneNumber = phoneNumber.replace("-", "");     //remove - char
-                if(!validatePhoneNumberFormat(phoneNumber)){
-                    phoneNumber = null;
-                }
+            phoneNumber = phoneNumber.replace("-", "");     //remove - char
+            if(!validatePhoneNumberFormat(phoneNumber)){
+                phoneNumber = null;
             }
 
-            initNewUser(username,password, weight, phoneNumber); //FIXME test
+            initNewUser(username,password, weight, phoneNumber);
             Toast.makeText(RegisterUserActivity.this, "User Registered", Toast.LENGTH_LONG).show();
             finish(); //done with activity
 
         }else if(username.length() == 0 || password.length() == 0) {        //Additional user feedback for incorrect information and logging
             Log.i(TAG, "One Or More Input Fields Empty");
-            Toast.makeText(RegisterUserActivity.this, "One Or More Input Fields Are Empty", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterUserActivity.this, "One Or More Input Fields Are Empty", Toast.LENGTH_SHORT).show();
         }else{
             Log.i(TAG, "User Already Exists");
-            Toast.makeText(RegisterUserActivity.this, "User Already Exists", Toast.LENGTH_LONG).show();
+            Toast.makeText(RegisterUserActivity.this, "User Already Exists", Toast.LENGTH_SHORT).show();
         }
 
 
@@ -133,24 +127,20 @@ public class RegisterUserActivity extends AppCompatActivity {
     //Check valid phone number is entered valid in this case is numeric and 10-12 characters
     private boolean validatePhoneNumberFormat(String phoneNumber){
         String regexStr = "[0-9]{10,12}$";
-        if(phoneNumber.matches(regexStr)) {
-            return true;
-        }else{
-            return false;
-        }
+        return phoneNumber.matches(regexStr);
     }
 
     //setup new user and add value to the goal weigh of 0 LBS
     private void initNewUser(String username, String password, String goalWeight, String phoneNumber){
         User newUser;
         Log.i(TAG, "User Does Not Exists Creating New User");
-        newUser = new User();
+        newUser = new User();       //setup user
         newUser.setUserName(username);
         newUser.setUserPassword(password);
         newUser.setUserPhoneNumber(phoneNumber);        //null or valid number
-        weightRepository.addUser(newUser);
-        newUser = weightRepository.getUser(username, password);
-        GoalWeight initGoalWeight = new GoalWeight();
+        weightRepository.addUser(newUser);      //add user to database
+        newUser = weightRepository.getUser(username, password);     //now get user back from database to get assigned id
+        GoalWeight initGoalWeight = new GoalWeight();       //setup goal weight
         if(goalWeight == null) {        //if goal weight null set 0 else set to weight value
             initGoalWeight.setWeight(0);
         }else{
@@ -161,8 +151,8 @@ public class RegisterUserActivity extends AppCompatActivity {
                 Toast.makeText(RegisterUserActivity.this, "Error In Weight Please Retry", Toast.LENGTH_SHORT).show();
             }
         }
-        initGoalWeight.setUserId(newUser.getId());
-        weightRepository.addGoalWeight(initGoalWeight);
+        initGoalWeight.setUserId(newUser.getId());      //get user id from above and use as the foreign key for goal weight
+        weightRepository.addGoalWeight(initGoalWeight);     //add goal weight to database
     }
 
     //method called when the phoneNumberView is pressed and checks for phone permissions
@@ -170,7 +160,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     public void checkPermissions(View view){
 
         if (smsPermission || ContextCompat.checkSelfPermission(RegisterUserActivity.this, "android.permission.SEND_SMS") == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(RegisterUserActivity.this, new String[]{"android.permission.SEND_SMS"}, 1);
+            ActivityCompat.requestPermissions(RegisterUserActivity.this, new String[]{"android.permission.SEND_SMS"}, 1);     //request code 1
         }else{//If already given opens phone number activity
             phoneNumberView.setFocusableInTouchMode(true);
             smsPermission = true;
@@ -187,12 +177,13 @@ public class RegisterUserActivity extends AppCompatActivity {
                 permissions,
                 grantResults);
 
-        if (requestCode == 1) {
+        if (requestCode == 1) {     //request code 1
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) { //if permission is granted
                 phoneNumberView.setFocusableInTouchMode(true);
                 smsPermission = true;
             } else {//permission denied program continues to run.
                 Toast.makeText(RegisterUserActivity.this, "SMS Permission Denied", Toast.LENGTH_SHORT) .show();
+                phoneNumberView.setEnabled(false);      //disable editText if permissions denied
             }
         }
 

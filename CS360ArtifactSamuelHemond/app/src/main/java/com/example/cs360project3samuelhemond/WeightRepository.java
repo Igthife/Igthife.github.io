@@ -31,7 +31,7 @@ public class WeightRepository {
     //singleton pattern with getInstance public and constructor private
     public static WeightRepository getInstance(Context context) {
         if (mWeightRepository == null) {
-            mWeightRepository = new WeightRepository(context); //FIXME context.getApplicationContext()
+            mWeightRepository = new WeightRepository(context.getApplicationContext()); //using context.getApplicationContext() instead of context
         }
         return mWeightRepository;
     }
@@ -57,7 +57,7 @@ public class WeightRepository {
         return mUserDao.getUserById(id);
     }
 
-    //method to safely check if user exists without returning user FIXME test
+    //method to safely check if user exists without returning user TODO enhancement 2 utilize
     public Boolean checkUserByName(String userName){
 
         return (null == mUserDao.getUserByName(userName));

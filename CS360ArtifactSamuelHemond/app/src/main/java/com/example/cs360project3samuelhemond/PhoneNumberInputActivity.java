@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PhoneNumberActivity extends Activity {
+public class PhoneNumberInputActivity extends Activity {
     private static final String TAG = "PhoneNumberActivity";
 
     WeightRepository weightRepository;
@@ -21,7 +21,7 @@ public class PhoneNumberActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.phone_number_input);
+        setContentView(R.layout.activity_phone_number_input);
         //setup views
         userPhoneNumber = findViewById(R.id.numberInput);
         currentPhoneNumber = findViewById(R.id.currentNumber);
@@ -43,16 +43,27 @@ public class PhoneNumberActivity extends Activity {
 
     //save phone number
     public void savePhoneNumber(View view) {
-        String userInput = userPhoneNumber.getText().toString();
-        if(userInput != null && userInput.length() >= 10){ //if phone number least 10 characters long save else notifiy user
+        String phoneNumber = userPhoneNumber.getText().toString();
+        phoneNumber = phoneNumber.replace("-", "");     //remove - char
+        if(phoneNumber != null && validatePhoneNumberFormat(phoneNumber)){ //check if phone number is valid
             User user = weightRepository.getUserById(userID);
-            user.setUserPhoneNumber(userInput);
+            user.setUserPhoneNumber(phoneNumber);
             weightRepository.updateUser(user);
-            Log.i(TAG, "Phone number updated to:" + userInput);
+            Log.i(TAG, "Phone number updated to:" + phoneNumber);
             finish(); //done with activity
         }else{
             Log.i(TAG, "Phone number invalid");
-            Toast.makeText(PhoneNumberActivity.this, "Invalid Phone Number", Toast.LENGTH_SHORT) .show();
+            Toast.makeText(PhoneNumberInputActivity.this, "Invalid Phone Number", Toast.LENGTH_SHORT) .show();
+        }
+    }
+
+    //Check valid phone number is entered valid in this case is numeric and 10-12 characters
+    private boolean validatePhoneNumberFormat(String phoneNumber){
+        String regexStr = "[0-9]{10,12}$";
+        if(phoneNumber.matches(regexStr)) {
+            return true;
+        }else{
+            return false;
         }
     }
 }

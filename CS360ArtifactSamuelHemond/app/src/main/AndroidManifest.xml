@@ -15,7 +15,7 @@
             android:name=".RegisterUserActivity"
             android:exported="false" />
         <activity
-            android:name=".PhoneNumberActivity"
+            android:name=".PhoneNumberInputActivity"
             android:exported="false" />
         <activity
             android:name=".InputActivity"

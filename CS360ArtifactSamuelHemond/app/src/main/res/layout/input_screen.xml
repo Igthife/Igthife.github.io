@@ -42,11 +42,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:onClick="datePicker"
+        android:inputType="date"
         android:background="?attr/editTextBackground"
         app:layout_constraintLeft_toLeftOf="@id/weightPrompt"
         app:layout_constraintRight_toRightOf="@id/weightPrompt"
         app:layout_constraintTop_toBottomOf="@id/datePrompt"
-        android:inputType="date" />
+         />
 
     <Button
         android:id="@+id/dateWeightButton"

@@ -10,7 +10,7 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
-import android.widget.DatePicker;
+//import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -128,15 +128,11 @@ public class InputActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 // on below line we are passing context.
                 InputActivity.this,
-                new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year,
-                                          int monthOfYear, int dayOfMonth) {
-                        //get localDate from calender picker and set the text view to the input date
-                        localDate = LocalDate.of(year, monthOfYear + 1,dayOfMonth);
-                        dateInput.setText(localDate.format(DateTimeFormatter.ISO_DATE));
-                        Log.i(TAG, "Date Picker: " + localDate.format(DateTimeFormatter.ISO_DATE));
-                    }
+                (view1, year1, monthOfYear, dayOfMonth) -> {
+                    //get localDate from calender picker and set the text view to the input date
+                    localDate = LocalDate.of(year1, monthOfYear + 1,dayOfMonth);
+                    dateInput.setText(localDate.format(DateTimeFormatter.ISO_DATE));
+                    Log.i(TAG, "Date Picker: " + localDate.format(DateTimeFormatter.ISO_DATE));
                 },
                 // on below line we are passing year,
                 // month and day for selected date in our date picker.
