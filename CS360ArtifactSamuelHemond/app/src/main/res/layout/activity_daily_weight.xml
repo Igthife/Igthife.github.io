@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputActivity">
+    tools:context=".dailyWeightActivity">
 
 
 
@@ -16,7 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"/>
+        android:layout_marginTop="75dp"/>
 
     <EditText
         android:id="@+id/weightInput"
@@ -55,42 +55,10 @@
         android:layout_height="wrap_content"
         android:text="@string/confirm_date_weight"
         android:onClick="submitDailyWeight"
+        style="@style/buttonGeneral"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dateInput"
         android:layout_margin="15dp"/>
-
-    <TextView
-        android:id="@+id/goalWeightPrompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/query_goal_weight"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateWeightButton"
-        android:layout_marginTop="50dp"/>
-
-    <EditText
-        android:id="@+id/goalWeightInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="@id/weightPrompt"
-        app:layout_constraintRight_toRightOf="@id/weightPrompt"
-        app:layout_constraintTop_toBottomOf="@id/goalWeightPrompt"
-        android:inputType="number" />
-
-    <Button
-        android:id="@+id/goalWeightButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/confirm_goal_weight"
-        android:onClick="submitGoalWeight"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/goalWeightInput"
-        android:layout_margin="15dp"/>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

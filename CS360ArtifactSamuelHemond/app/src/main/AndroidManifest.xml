@@ -18,7 +18,10 @@
             android:name=".PhoneNumberInputActivity"
             android:exported="false" />
         <activity
-            android:name=".InputActivity"
+            android:name=".dailyWeightActivity"
+            android:exported="false" />
+        <activity
+            android:name=".goalWeightActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

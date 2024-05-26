@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
-//import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +18,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
-public class InputActivity extends AppCompatActivity {
+public class dailyWeightActivity extends AppCompatActivity {
+    //logging tag
     private static final String TAG = "InputActivity";
+    //database
     WeightRepository weightRepository;
-    Long userID;//user idea to search database
+    //user idea to search database
+    Long userID;
     LocalDate localDate;
     //views declaration
     EditText goalWeightInput;
@@ -32,7 +34,7 @@ public class InputActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.input_screen);
+        setContentView(R.layout.activity_daily_weight);
         //get views
         goalWeightInput = findViewById(R.id.goalWeightInput);
         dateInput = findViewById(R.id.dateInput);
@@ -45,28 +47,7 @@ public class InputActivity extends AppCompatActivity {
         userID = intent.getLongExtra("userID", 0);
     }
 
-    //method called by the submit goal weight button
-    public void submitGoalWeight(View view) {
-        String input = goalWeightInput.getText().toString();
-        GoalWeight goalWeight;
 
-        //check for no input and double check input is numeric
-        if(input.length()>0 && input.chars().allMatch(Character::isDigit)){
-
-           goalWeight = weightRepository.getGoalWeightByUserId(userID);//get goal weight and update it
-           try {
-               goalWeight.setWeight(Integer.parseInt(input));
-           }catch (NumberFormatException e) {
-               Log.i(TAG, "Input Exception");
-           }
-           weightRepository.updateGoalWeight(goalWeight);
-           finish(); //done with activity
-
-        }else{//creates toast for user and log for invalid input
-            Log.i(TAG, "Invalid Input");
-            Toast.makeText(InputActivity.this, "Invalid Input", Toast.LENGTH_LONG).show();
-        }
-    }
 
     //submits information from ui to logic creates new daily weight or updates daily weight as needed
     public void submitDailyWeight(View view) {
@@ -96,7 +77,7 @@ public class InputActivity extends AppCompatActivity {
                 Log.i(TAG, "Daily Weight Updated");
             }
             //Send Text message if most recent input weight equals goal weight and permissions exist
-            if(ContextCompat.checkSelfPermission(InputActivity.this, "android.permission.SEND_SMS") == PackageManager.PERMISSION_GRANTED &&
+            if(ContextCompat.checkSelfPermission(dailyWeightActivity.this, "android.permission.SEND_SMS") == PackageManager.PERMISSION_GRANTED &&
                     dailyWeight.getWeight() == weightRepository.getGoalWeightById(userID).getWeight()&& weightRepository.getUserById(userID).getUserPhoneNumber() != null){
                 Toast.makeText(this, "Goal Weight Hit! Sending Text Message.",Toast.LENGTH_LONG).show();
                 SmsManager smsManager=SmsManager.getDefault();
@@ -127,7 +108,7 @@ public class InputActivity extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 // on below line we are passing context.
-                InputActivity.this,
+                dailyWeightActivity.this,
                 (view1, year1, monthOfYear, dayOfMonth) -> {
                     //get localDate from calender picker and set the text view to the input date
                     localDate = LocalDate.of(year1, monthOfYear + 1,dayOfMonth);

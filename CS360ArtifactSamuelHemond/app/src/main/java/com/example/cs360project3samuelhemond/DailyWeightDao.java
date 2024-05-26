@@ -1,7 +1,6 @@
 package com.example.cs360project3samuelhemond;
 
 import androidx.room.*;
-import com.example.cs360project3samuelhemond.DailyWeight;
 
 import java.time.LocalDate;
 import java.util.List;

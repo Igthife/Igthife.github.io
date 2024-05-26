@@ -1,7 +1,6 @@
 package com.example.cs360project3samuelhemond;
 
 import androidx.room.*;
-import com.example.cs360project3samuelhemond.User;
 import java.util.List;
 
 //Data access object for working with User objects within ROOM

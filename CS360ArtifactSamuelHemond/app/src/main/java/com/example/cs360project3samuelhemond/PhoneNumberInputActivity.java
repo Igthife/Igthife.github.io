@@ -33,11 +33,13 @@ public class PhoneNumberInputActivity extends Activity {
         userID = intent.getLongExtra("userID", 0);
 
         //display current phone number if present
+        String message;
         if(weightRepository.getUserById(userID).getUserPhoneNumber() == null){
-            currentPhoneNumber.setText(getString(R.string.current_phone_number) + "Empty");
+            message = getString(R.string.current_phone_number) + "Empty";
         }else{
-            currentPhoneNumber.setText(getString(R.string.current_phone_number) + weightRepository.getUserById(userID).getUserPhoneNumber());
+            message = getString(R.string.current_phone_number) + weightRepository.getUserById(userID).getUserPhoneNumber();
         }
+        currentPhoneNumber.setText(message);
 
     }
 
@@ -45,7 +47,7 @@ public class PhoneNumberInputActivity extends Activity {
     public void savePhoneNumber(View view) {
         String phoneNumber = userPhoneNumber.getText().toString();
         phoneNumber = phoneNumber.replace("-", "");     //remove - char
-        if(phoneNumber != null && validatePhoneNumberFormat(phoneNumber)){ //check if phone number is valid
+        if( validatePhoneNumberFormat(phoneNumber)){ //check if phone number is valid
             User user = weightRepository.getUserById(userID);
             user.setUserPhoneNumber(phoneNumber);
             weightRepository.updateUser(user);
@@ -60,10 +62,6 @@ public class PhoneNumberInputActivity extends Activity {
     //Check valid phone number is entered valid in this case is numeric and 10-12 characters
     private boolean validatePhoneNumberFormat(String phoneNumber){
         String regexStr = "[0-9]{10,12}$";
-        if(phoneNumber.matches(regexStr)) {
-            return true;
-        }else{
-            return false;
-        }
+        return phoneNumber.matches(regexStr);
     }
 }

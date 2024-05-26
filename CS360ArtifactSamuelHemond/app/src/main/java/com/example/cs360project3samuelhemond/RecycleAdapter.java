@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,8 +42,10 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     //set values is recycle_item.xml
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.weight.setText(String.valueOf(weights.get(position).getWeight() + " Lbs"));
-        holder.date.setText(String.valueOf(weights.get(position).getDate()));
+        String weight = weights.get(position).getWeight() + " Lbs";
+        String date = String.valueOf(weights.get(position).getDate());
+        holder.weight.setText(weight);
+        holder.date.setText(date);
     }
 
     //return number of items in recycle view
@@ -57,7 +58,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
     public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView weight, date;
         Button deleteButton;
-        private WeakReference<ClickListener> listenerRef;
+        private final WeakReference<ClickListener> listenerRef;
 
         //constructor for ViewHolder
         public MyViewHolder(@NonNull View itemView, ClickListener listener) {
@@ -79,7 +80,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
         public void onClick(View v) {
 
             if (v.getId() == deleteButton.getId()) {
-                Log.i(TAG, "ITEM PRESSED = " + String.valueOf(getAdapterPosition()));
+                Log.i(TAG, "ITEM PRESSED = " + getAdapterPosition());
                 listenerRef.get().onClick(getAdapterPosition());
             }
 

@@ -2,21 +2,12 @@ package com.example.cs360project3samuelhemond;
 
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.OnConflictStrategy;
-import androidx.room.Query;
 import androidx.room.Room;
-import androidx.room.Update;
 
-import com.example.cs360project3samuelhemond.DailyWeight;
-import com.example.cs360project3samuelhemond.User;
-import com.example.cs360project3samuelhemond.GoalWeight;
+
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 

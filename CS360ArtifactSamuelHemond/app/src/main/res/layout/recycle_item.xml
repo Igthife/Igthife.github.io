@@ -69,12 +69,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/delete_row"
+        style="@style/buttonDelete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/dateValue"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintWidth_percent="0.23"
-        style="@style/buttonDelete"/>
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

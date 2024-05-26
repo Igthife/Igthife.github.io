@@ -1,7 +1,6 @@
 package com.example.cs360project3samuelhemond;
 
 import androidx.room.*;
-import com.example.cs360project3samuelhemond.GoalWeight;
 import java.util.List;
 
 //Data access object for working with goalWeight objects within ROOM

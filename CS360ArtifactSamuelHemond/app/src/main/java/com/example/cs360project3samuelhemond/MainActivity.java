@@ -86,9 +86,16 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "Weights Length: " + weights.size());
     }
 
-    //called by button to open the input activity
-    public void useInputActivity(View view) {
-        Intent intent = new Intent(this, InputActivity.class);
+    //called by button to open the dailyWeightActivity
+    public void openDailyWeightActivity(View view) {
+        Intent intent = new Intent(this, dailyWeightActivity.class);
+        intent.putExtra("userID", userID);//pass user id
+        startActivity(intent);
+    }
+
+    //called by button to open the goalWeightActivity
+    public void openGoalWeightActivity(View view) {
+        Intent intent = new Intent(this, goalWeightActivity.class);
         intent.putExtra("userID", userID);//pass user id
         startActivity(intent);
     }
