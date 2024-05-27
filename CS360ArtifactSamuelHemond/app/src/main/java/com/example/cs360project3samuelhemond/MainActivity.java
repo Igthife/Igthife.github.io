@@ -1,25 +1,33 @@
 package com.example.cs360project3samuelhemond;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     //logging tag
     private static final String TAG = "MainActivity";
     //database
@@ -33,6 +41,11 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<DailyWeight> weights;
     RecycleAdapter recycleAdapter;
 
+    //resources for drawer
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    ActionBarDrawerToggle toggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         //get views from xml
         goalWeightTextView = findViewById(R.id.goalWeight);
         recyclerView = findViewById(R.id.weightTable);
+        drawerLayout = findViewById(R.id.mainDrawerLayout);
+        navigationView = findViewById(R.id.navigationView);
 
         //get singleton for database
         weightRepository = WeightRepository.getInstance(this);
@@ -49,8 +64,14 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         userID = intent.getLongExtra("userID", 0);
 
+        //setup setting drawer and set listener
+        toggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
+    //Called when activity resumes or starts
     @Override
     protected void onResume() {
         super.onResume();
@@ -70,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(recycleAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         refreshDisplayData();//refresh lists
+    }
+
+    //checks for item in drawer pressed and returns boolean
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(toggle.onOptionsItemSelected(item)){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     //refresh lists
@@ -100,17 +130,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //Method to retrieve sms permission. If already given opens phone number activity
-    public void getSmsPermission(View view) {
-        if (ContextCompat.checkSelfPermission(MainActivity.this, "android.permission.SEND_SMS") == PackageManager.PERMISSION_DENIED) {
-            ActivityCompat.requestPermissions(MainActivity.this, new String[]{"android.permission.SEND_SMS"}, 1);
-        }else{//If already given opens phone number activity
-            Toast.makeText(MainActivity.this, "SMS Already Permission Granted", Toast.LENGTH_SHORT) .show();
-            Intent intent = new Intent(this, PhoneNumberInputActivity.class);
-            intent.putExtra("userID", userID);//pass user id
-            startActivity(intent);
-        }
+    //Method to open setting drawer from a button rather than action bar
+    public void openSettings(View view) {
+        drawerLayout.openDrawer(GravityCompat.END);
     }
+
     //Method called after user is prompted for permissions
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -123,13 +147,41 @@ public class MainActivity extends AppCompatActivity {
 
         if (requestCode == 1) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) { //if permission is granted
-                Intent intent = new Intent(this, PhoneNumberInputActivity.class);
-                intent.putExtra("userID", userID);//pass user id
-                startActivity(intent);
-            } else {//permission denied program continues to run.
+                //inform user of success
+                Toast.makeText(MainActivity.this, "SMS Permission Granted", Toast.LENGTH_SHORT) .show();
+            } else {//if permission denied open up app settings in the android settings
                 Toast.makeText(MainActivity.this, "SMS Permission Denied", Toast.LENGTH_SHORT) .show();
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getPackageName()));
+                startActivity(intent);
             }
         }
 
+    }
+
+    //method called when when item in drawer selected
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        //handle id checking which item is selected
+        if(item.getItemId() == R.id.smsPermissionsItem){
+            //if permission are needed request from user else inform user already granted
+            if (ContextCompat.checkSelfPermission(MainActivity.this, "android.permission.SEND_SMS") == PackageManager.PERMISSION_DENIED) {
+                ActivityCompat.requestPermissions(MainActivity.this, new String[]{"android.permission.SEND_SMS"}, 1);
+            }else{//If already given opens phone number activity
+                Toast.makeText(MainActivity.this, "SMS Already Permission Granted", Toast.LENGTH_SHORT) .show();
+            }
+
+        }else if(item.getItemId() == R.id.phoneNumberItem){
+            //if permissions present open phone number activity else don't
+            if (ContextCompat.checkSelfPermission(MainActivity.this, "android.permission.SEND_SMS") != PackageManager.PERMISSION_DENIED) {
+                Intent intent = new Intent(this, PhoneNumberInputActivity.class);
+                intent.putExtra("userID", userID);//pass user id
+                startActivity(intent);
+        }else{//If no permission inform user
+            Toast.makeText(MainActivity.this, "SMS Permission Missing", Toast.LENGTH_SHORT) .show();
+        }
+        }
+        //close drawer once item selected
+        drawerLayout.closeDrawer(GravityCompat.END);
+        return true;
     }
 }

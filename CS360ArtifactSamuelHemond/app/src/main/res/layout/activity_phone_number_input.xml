@@ -24,7 +24,9 @@
         android:inputType="phone"
         app:layout_constraintLeft_toLeftOf="@id/numberPrompt"
         app:layout_constraintRight_toRightOf="@id/numberPrompt"
-        app:layout_constraintTop_toBottomOf="@id/numberPrompt" />
+        app:layout_constraintTop_toBottomOf="@id/numberPrompt"
+        android:hint="@string/phone_number_hint"
+        android:autofillHints="no" />
 
     <Button
         android:id="@+id/loginButton"

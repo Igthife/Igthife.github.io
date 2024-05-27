@@ -32,9 +32,12 @@
         android:id="@+id/usernameInputLogin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:inputType="text"
+        android:autofillHints="username"
         app:layout_constraintLeft_toLeftOf="@id/usernamePromptLogin"
         app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
-        app:layout_constraintTop_toBottomOf="@id/usernamePromptLogin" />
+        app:layout_constraintTop_toBottomOf="@id/usernamePromptLogin"
+         />
 
     <TextView
         android:id="@+id/passwordPromptLogin"
@@ -50,9 +53,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
+        android:autofillHints="password"
         app:layout_constraintLeft_toLeftOf="@id/usernamePromptLogin"
         app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
         app:layout_constraintTop_toBottomOf="@id/passwordPromptLogin" />
+
 
     <Button
         android:id="@+id/loginButton"

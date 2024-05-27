@@ -3,20 +3,29 @@
     <style name="buttonDelete" parent="ThemeOverlay.AppCompat">
         <item name="backgroundTint">@color/red_button</item>
         <item name="android:textColor">#000000</item>
-        <item name="android:textSize">10dp</item>
+        <item name="android:textSize">10sp</item>
         <item name="cornerRadius">50dp</item>
     </style>
     <style name="buttonGeneral" parent="ThemeOverlay.AppCompat">
         <item name="cornerRadius">50dp</item>
     </style>
+    <style name="buttonMenu" parent="ThemeOverlay.AppCompat">
+        <item name="backgroundTint">@color/red_button</item>
+        <item name="cornerRadius">50dp</item>
+    </style>
+    <style name="titleMenu" parent="ThemeOverlay.AppCompat">
+        <item name="android:textSize">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">?attr/colorSecondary</item>
+    </style>
     <style name="goalWeight" parent="ThemeOverlay.AppCompat">
-        <item name="android:textSize">25dp</item>
+        <item name="android:textSize">25sp</item>
     </style>
     <style name="scrollMenu" parent="ThemeOverlay.AppCompat">
         <item name="android:textColor">#000000</item>
     </style>
     <style name="titleText" parent="TextAppearance.AppCompat">
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
     </style>
 </resources>

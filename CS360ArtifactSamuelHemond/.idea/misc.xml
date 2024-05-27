@@ -4,17 +4,26 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/drawable/ic_launcher_background.xml" value="0.132" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/drawable/ic_phone_number.xml" value="0.1805" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/drawable/ic_sms_perm.xml" value="0.1805" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/drawable/rectangle.xml" value="0.1515" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_daily_weight.xml" value="0.25" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_goal_weight.xml" value="0.25" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_login.xml" value="0.37395833333333334" />
-        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_phone_number_input.xml" value="0.17654508611955422" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_register_user.xml" value="0.375" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/input_screen.xml" value="0.25" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/login.xml" value="0.375" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/nav_header_menu.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/phone_number_input.xml" value="0.25" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/recycle_item.xml" value="0.15172239108409322" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/title_header.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/menu/k.xml" value="1.21875" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/menu/nav_drawer_menu.xml" value="0.36302083333333335" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.136" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/mipmap-anydpi-v26/ic_launcher2.xml" value="0.136" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.136" />
       </map>
     </option>
   </component>

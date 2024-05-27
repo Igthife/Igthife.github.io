@@ -70,7 +70,7 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.MyViewHo
             //get views
             weight =  itemView.findViewById(R.id.weightValue);
             date =  itemView.findViewById(R.id.dateValue);
-            deleteButton = (Button) itemView.findViewById(R.id.deleteRow);
+            deleteButton = itemView.findViewById(R.id.deleteRow);
 
             deleteButton.setOnClickListener(this);
 

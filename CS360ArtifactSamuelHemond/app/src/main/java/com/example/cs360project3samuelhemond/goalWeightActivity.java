@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.time.LocalDate;
 
 public class goalWeightActivity extends AppCompatActivity {
     //logging tag
