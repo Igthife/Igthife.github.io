@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--UI for user to login or open register activity-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +8,7 @@
     tools:context=".LoginActivity">
 
 
+    <!--App title display-->
     <TextView
         android:id="@+id/welcomeTextLogin"
         android:layout_width="wrap_content"
@@ -19,6 +21,7 @@
         android:layout_marginTop="100dp"
         android:layout_marginBottom="100dp"/>
 
+    <!--Prompt user for username-->
     <TextView
         android:id="@+id/usernamePromptLogin"
         android:layout_width="wrap_content"
@@ -28,6 +31,7 @@
         app:layout_constraintTop_toBottomOf="@id/welcomeTextLogin"
         android:layout_marginTop="50dp"/>
 
+    <!--Record user username-->
     <EditText
         android:id="@+id/usernameInputLogin"
         android:layout_width="0dp"
@@ -39,6 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/usernamePromptLogin"
          />
 
+    <!--Prompt user for password-->
     <TextView
         android:id="@+id/passwordPromptLogin"
         android:layout_width="wrap_content"
@@ -48,6 +53,7 @@
         app:layout_constraintTop_toBottomOf="@id/usernameInputLogin"
         android:layout_marginTop="50dp"/>
 
+    <!--Record user password-->
     <EditText
         android:id="@+id/passwordInputLogin"
         android:layout_width="0dp"
@@ -58,7 +64,7 @@
         app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
         app:layout_constraintTop_toBottomOf="@id/passwordPromptLogin" />
 
-
+    <!--Submit user username and password-->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="wrap_content"
@@ -71,6 +77,7 @@
         app:layout_constraintTop_toBottomOf="@id/passwordInputLogin"
         android:layout_margin="15dp"/>
 
+    <!--Open register user activity-->
     <Button
         android:id="@+id/registerButton"
         android:layout_width="wrap_content"

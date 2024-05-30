@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--UI for registerUserActivity-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".RegisterUserActivity">
 
+    <!--Display UI title-->
     <TextView
         android:id="@+id/welcomeTextLogin"
         android:layout_width="wrap_content"
@@ -18,6 +20,7 @@
         android:layout_marginTop="70dp"
         android:layout_marginBottom="100dp"/>
 
+    <!--Prompt user for new username-->
     <TextView
         android:id="@+id/usernamePromptRegister"
         android:layout_width="wrap_content"
@@ -27,6 +30,7 @@
         app:layout_constraintTop_toBottomOf="@id/welcomeTextLogin"
         android:layout_marginTop="40dp"/>
 
+    <!--Record new username-->
     <EditText
         android:id="@+id/usernameInputRegister"
         android:layout_width="0dp"
@@ -35,6 +39,7 @@
         app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
         app:layout_constraintTop_toBottomOf="@id/usernamePromptRegister" />
 
+    <!--Prompt user for new password-->
     <TextView
         android:id="@+id/passwordPromptRegister"
         android:layout_width="wrap_content"
@@ -44,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/usernameInputRegister"
         android:layout_marginTop="40dp"/>
 
+    <!--Record new password-->
     <EditText
         android:id="@+id/passwordInputRegister"
         android:layout_width="0dp"
@@ -53,6 +59,7 @@
         app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
         app:layout_constraintTop_toBottomOf="@id/passwordPromptRegister" />
 
+    <!--Prompt user for new goal weight (optional)-->
     <TextView
         android:id="@+id/goalWeightPromptRegister"
         android:layout_width="wrap_content"
@@ -62,6 +69,7 @@
         app:layout_constraintTop_toBottomOf="@id/passwordInputRegister"
         android:layout_marginTop="40dp"/>
 
+    <!--Record user goal weight-->
     <EditText
         android:id="@+id/goalWeightInputRegister"
         android:layout_width="0dp"
@@ -71,6 +79,8 @@
         app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
         app:layout_constraintTop_toBottomOf="@id/goalWeightPromptRegister" />
 
+    <!--Prompt user for new phone number (optional)(prompts user for sms permissions and is
+    disabled if sms permissions are denied)-->
     <TextView
         android:id="@+id/phoneNumberPromptRegister"
         android:layout_width="wrap_content"
@@ -80,6 +90,7 @@
         app:layout_constraintTop_toBottomOf="@id/goalWeightInputRegister"
         android:layout_marginTop="40dp"/>
 
+    <!--Record phone number input-->
     <EditText
         android:id="@+id/phoneNumberInputRegister"
         android:layout_width="0dp"
@@ -90,7 +101,7 @@
         app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
         app:layout_constraintTop_toBottomOf="@id/phoneNumberPromptRegister" />
 
-
+    <!--Submit new users information-->
     <Button
         android:id="@+id/newUserButton"
         android:layout_width="wrap_content"

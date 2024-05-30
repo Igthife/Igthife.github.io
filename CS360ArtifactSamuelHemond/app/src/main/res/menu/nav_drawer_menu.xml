@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--UI menu for settings draw-->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <!--Prompt user for SMS permissions-->
     <item
         android:id="@+id/smsPermissionsItem"
         android:title="@string/sms_permission_item"
         android:icon="@drawable/ic_sms_perm"/>
+    <!--Set or reset user phone number-->
     <item
         android:id="@+id/phoneNumberItem"
         android:title="@string/sms_phone_number_item"

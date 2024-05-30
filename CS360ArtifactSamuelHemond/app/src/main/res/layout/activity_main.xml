@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--suppress AndroidUnknownAttribute -->
+<!--UI for main page showing weights and various other actions-->
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,11 +9,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--Layout to separated drawer from other UI elements-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
 
+        <!--Display user goal weight-->
         <TextView
             android:id="@+id/goalWeight"
             android:layout_width="wrap_content"
@@ -25,8 +28,9 @@
             app:layout_constraintBottom_toTopOf="@+id/weightTable"
              />
 
+        <!--Button to open settings draw-->
         <ImageButton
-            android:id="@+id/permissions"
+            android:id="@+id/settingsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="openSettings"
@@ -38,7 +42,7 @@
             android:layout_marginEnd="30dp"
             android:contentDescription="@string/goal_weight" />
 
-
+        <!--Element to hold scrollable recycler view (see recycle_item.xml)-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/weightTable"
             android:layout_marginBottom="100dp"
@@ -56,6 +60,7 @@
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             tools:listitem="@layout/recycle_item" />
 
+        <!--Button to open dailyWeightActivity-->
         <Button
             android:id="@+id/dailyWeightInputButton"
             android:layout_width="wrap_content"
@@ -69,6 +74,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="@string/confirm_date_weight" />
 
+        <!--Button to open goalWeightActivity-->
         <Button
             android:id="@+id/goalWeightInputButton"
             android:layout_width="wrap_content"
@@ -84,6 +90,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!--View to hold setting drawer-->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"
         android:layout_width="wrap_content"

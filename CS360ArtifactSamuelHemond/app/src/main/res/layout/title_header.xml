@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--UI title section for settings draw-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="?attr/colorPrimary">
 
+    <!--App title display-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

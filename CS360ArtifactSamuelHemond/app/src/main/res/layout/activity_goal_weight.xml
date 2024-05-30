@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--UI for activity to input user goal weight-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".goalWeightActivity">
 
+    <!--Prompt user for goal weight-->
     <TextView
         android:id="@+id/goalWeightPrompt"
         android:layout_width="wrap_content"
@@ -16,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="75dp"/>
 
+    <!--Record user goal weight-->
     <EditText
         android:id="@+id/goalWeightInput"
         android:layout_width="0dp"
@@ -26,6 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/goalWeightPrompt"
        />
 
+    <!--Submit goal weight-->
     <Button
         android:id="@+id/goalWeightButton"
         android:layout_width="wrap_content"
