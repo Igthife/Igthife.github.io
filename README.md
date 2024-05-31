@@ -5,7 +5,7 @@ ePortfolio for CS-499 SNHU
 
 ### Original Artifact
 
-[Original Artifact](CS360ArtifactSamuelHemond")
+[Original Artifact](tree/main/CS360ArtifactSamuelHemond")
 
 ### Code Review
 
