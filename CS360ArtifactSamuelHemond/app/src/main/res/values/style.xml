@@ -16,6 +16,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
+        <item name="android:textColor">?colorOnPrimary</item>
         <item name="android:background">?attr/colorSecondary</item>
     </style>
     <style name="goalWeight" parent="ThemeOverlay.AppCompat">
@@ -30,16 +31,20 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">20sp</item>
         <item name="android:gravity">center</item>
+        <item name="android:textColor">?colorOnPrimary</item>
     </style>
     <style name="invertButtonColor" parent="TextAppearance.AppCompat">
         <item name="cornerRadius">50dp</item>
-        <item name="android:backgroundTint">@color/light_primary_color</item>
+        <item name="android:backgroundTint">?colorContainer</item>
         <item name="android:textColor">?colorOnPrimary</item>
         <item name="strokeColor">?colorPrimary</item>
         <item name="strokeWidth">3dp</item>
     </style>
     <style name="windowStyle" parent="TextAppearance.AppCompat">
         <item name="cardBackgroundColor">?colorContainer</item>
+    </style>
+    <style name="editTitleStyle" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">?colorOnPrimary</item>
     </style>
 
 </resources>

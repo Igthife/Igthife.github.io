@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //set background for drawer could not find a way to complete this via XML
         navigationView.setBackgroundColor(fetchAccentColor());
+        //navigationView.setItemTextColor(R.attr.colorContainer);
     }
 
     //Method to get color as an int from theme

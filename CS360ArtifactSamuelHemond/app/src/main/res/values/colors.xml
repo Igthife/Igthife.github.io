@@ -18,6 +18,7 @@
     <!--Colors added for app-->
     <color name="red_button">#ff3333 </color>
 
+    <!--Colors added for day app-->
     <color name="dark_primary_color">#F57C00</color>
     <color name="light_primary_color">#FFE0B2</color>
     <color name="primary_color">#ff9800</color>
@@ -27,6 +28,17 @@
     <color name="primary_text_color">#212121</color>
     <color name="secondary_text_color">#757575</color>
     <color name="divider_color">#BDBDBD</color>
+
+    <!--Colors added for night app-->
+    <color name="night_dark_primary_color">#616161</color>
+    <color name="night_light_primary_color">#737070</color>
+    <color name="night_primary_color">#524f4f</color>
+    <color name="night_text_icon_color">#212121</color>
+
+    <color name="night_accent_color">#7c4dff</color>
+    <color name="night_primary_text_color">#f2eded</color>
+    <color name="night_secondary_text_color">#757575</color>
+    <color name="night_divider_color">#BDBDBD</color>
 
 
 

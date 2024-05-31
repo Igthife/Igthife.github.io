@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.364" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/drawable/button_background.xml" value="0.194" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/drawable/color_gradient.xml" value="0.271" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/drawable/custom_edittext.xml" value="0.364" />
@@ -14,7 +15,7 @@
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_daily_weight.xml" value="0.375" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_goal_weight.xml" value="0.25" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_login.xml" value="0.37395833333333334" />
-        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_phone_number.xml" value="0.1859375" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_phone_number_input.xml" value="0.375" />
         <entry key="..\:/Users/Sam Main/Documents/GitHub/Igthife.github.io/CS360ArtifactSamuelHemond/app/src/main/res/layout/activity_register_user.xml" value="0.375" />

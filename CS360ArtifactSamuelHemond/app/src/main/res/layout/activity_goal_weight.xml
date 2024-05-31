@@ -42,6 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/query_goal_weight"
+                style="@style/editTitleStyle"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/welcomeTextGoalWeight"
@@ -55,6 +56,7 @@
                 android:inputType="number"
                 android:background="@drawable/custom_edittext"
                 android:padding="5dp"
+                style="@style/editTitleStyle"
                 app:layout_constraintLeft_toLeftOf="@id/goalWeightPrompt"
                 app:layout_constraintRight_toRightOf="@id/goalWeightPrompt"
                 app:layout_constraintTop_toBottomOf="@id/goalWeightPrompt" />

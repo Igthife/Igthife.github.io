@@ -2,19 +2,19 @@
     <!-- Base application theme. -->
     <style name="Theme.CS360Project3SamuelHemond" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/night_primary_color</item>
+        <item name="colorPrimaryVariant">@color/night_dark_primary_color</item>
+        <item name="colorOnPrimary">@color/night_primary_text_color</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
+        <item name="colorSecondary">@color/night_accent_color</item>
+        <item name="colorSecondaryVariant">@color/night_divider_color</item>
+        <item name="colorOnSecondary">@color/night_secondary_text_color</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
 
-        <item name="colorContainer">@color/light_primary_color</item>
-
+        <item name="colorContainer">@color/night_light_primary_color</item>
 
     </style>
+
 </resources>

@@ -99,6 +99,8 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
+        app:itemTextColor="?colorOnPrimary"
+        app:itemIconTint="?colorOnPrimary"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/title_header"
         app:menu="@menu/nav_drawer_menu"/>
