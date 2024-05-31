@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class goalWeightActivity extends AppCompatActivity {
+public class GoalWeightActivity extends AppCompatActivity {
     //logging tag
     private static final String TAG = "InputActivity";
     //database
@@ -52,7 +52,7 @@ public class goalWeightActivity extends AppCompatActivity {
 
         }else{//creates toast for user and log for invalid input
             Log.i(TAG, "Invalid Input");
-            Toast.makeText(goalWeightActivity.this, "Invalid Input", Toast.LENGTH_LONG).show();
+            Toast.makeText(GoalWeightActivity.this, "Invalid Input", Toast.LENGTH_LONG).show();
         }
     }
 }

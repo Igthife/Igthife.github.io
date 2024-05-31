@@ -1,70 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--UI for activity to input daily weight-->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".dailyWeightActivity">
+    android:background="@drawable/color_gradient"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    tools:context=".DailyWeightActivity">
 
-
-    <!--Prompt user for weight-->
-    <TextView
-        android:id="@+id/weightPrompt"
+    <!--Card view for view design-->
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/query_weight"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="75dp"/>
+        app:contentPadding="50dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="30dp"
+        android:layout_marginTop="100dp"
+        app:cardBackgroundColor="?colorContainer"
+        >
 
-    <!--Record user weight-->
-    <EditText
-        android:id="@+id/weightInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        app:layout_constraintLeft_toLeftOf="@id/weightPrompt"
-        app:layout_constraintRight_toRightOf="@id/weightPrompt"
-        app:layout_constraintTop_toBottomOf="@id/weightPrompt"
-         />
+        <!--Constrained layout to hold text elements-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
-    <!--Prompt user for date-->
-    <TextView
-        android:id="@+id/datePrompt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/query_date"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/weightInput"
-        android:layout_marginTop="10dp"/>
+            <!--Daily Weight title display-->
+            <TextView
+                android:id="@+id/welcomeTextDailyWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/daily_weight_title"
+                style="@style/titleText"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <!--Open date picker and display chosen date-->
-    <TextView
-        android:id="@+id/dateInput"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:onClick="datePicker"
-        android:inputType="date"
-        android:background="?attr/editTextBackground"
-        app:layout_constraintLeft_toLeftOf="@id/weightPrompt"
-        app:layout_constraintRight_toRightOf="@id/weightPrompt"
-        app:layout_constraintTop_toBottomOf="@id/datePrompt"
-         />
+            <!--Prompt user for weight-->
+            <TextView
+                android:id="@+id/weightPrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/query_weight"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcomeTextDailyWeight"
+                android:layout_marginTop="40dp"/>
 
-    <!--Submit daily weight-->
-    <Button
-        android:id="@+id/dateWeightButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/confirm_date_weight"
-        android:onClick="submitDailyWeight"
-        style="@style/buttonGeneral"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dateInput"
-        android:layout_margin="15dp"/>
+            <!--Record user weight-->
+            <EditText
+                android:id="@+id/weightInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:background="@drawable/custom_edittext"
+                android:padding="5dp"
+                app:layout_constraintLeft_toLeftOf="@id/weightPrompt"
+                app:layout_constraintRight_toRightOf="@id/weightPrompt"
+                app:layout_constraintTop_toBottomOf="@id/weightPrompt"
+                 />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!--Prompt user for date-->
+            <TextView
+                android:id="@+id/datePrompt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/query_date"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/weightInput"
+                android:layout_marginTop="10dp"/>
+
+            <!--Open date picker and display chosen date-->
+            <TextView
+                android:id="@+id/dateInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:onClick="datePicker"
+                android:inputType="date"
+                android:background="@drawable/custom_edittext"
+                android:padding="5dp"
+                app:layout_constraintLeft_toLeftOf="@id/weightPrompt"
+                app:layout_constraintRight_toRightOf="@id/weightPrompt"
+                app:layout_constraintTop_toBottomOf="@id/datePrompt" />
+
+            <!--Submit daily weight-->
+            <Button
+                android:id="@+id/dateWeightButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/confirm_date_weight"
+                android:onClick="submitDailyWeight"
+                style="@style/buttonGeneral"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dateInput"
+                android:layout_margin="15dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

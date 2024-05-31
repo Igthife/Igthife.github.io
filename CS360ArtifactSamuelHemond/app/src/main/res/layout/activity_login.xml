@@ -1,94 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--UI for user to login or open register activity-->
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:background="@drawable/color_gradient"
+    android:orientation="horizontal"
+    android:gravity="center_horizontal"
+    tools:context=".LoginActivity"
+    >
 
-
-    <!--App title display-->
-    <TextView
-        android:id="@+id/welcomeTextLogin"
+    <!--Card view for view design-->
+    <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/app_welcome"
-        style="@style/titleText"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:contentPadding="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="30dp"
         android:layout_marginTop="100dp"
-        android:layout_marginBottom="100dp"/>
+        app:cardBackgroundColor="?colorContainer"
+        >
 
-    <!--Prompt user for username-->
-    <TextView
-        android:id="@+id/usernamePromptLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/username_credentials"
-        app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
-        app:layout_constraintTop_toBottomOf="@id/welcomeTextLogin"
-        android:layout_marginTop="50dp"/>
+        <!--Constrained layout to hold text elements-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
-    <!--Record user username-->
-    <EditText
-        android:id="@+id/usernameInputLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:autofillHints="username"
-        app:layout_constraintLeft_toLeftOf="@id/usernamePromptLogin"
-        app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
-        app:layout_constraintTop_toBottomOf="@id/usernamePromptLogin"
-         />
+            <!--App title display-->
+            <TextView
+                android:id="@+id/welcomeTextLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_welcome"
+                style="@style/titleText"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginBottom="100dp"/>
 
-    <!--Prompt user for password-->
-    <TextView
-        android:id="@+id/passwordPromptLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/password_credentials"
-        app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
-        app:layout_constraintTop_toBottomOf="@id/usernameInputLogin"
-        android:layout_marginTop="50dp"/>
+            <!--Prompt user for username-->
+            <TextView
+                android:id="@+id/usernamePromptLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/username_credentials"
+                app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
+                app:layout_constraintTop_toBottomOf="@id/welcomeTextLogin"
+                android:layout_marginTop="50dp"/>
 
-    <!--Record user password-->
-    <EditText
-        android:id="@+id/passwordInputLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:autofillHints="password"
-        app:layout_constraintLeft_toLeftOf="@id/usernamePromptLogin"
-        app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
-        app:layout_constraintTop_toBottomOf="@id/passwordPromptLogin" />
+            <!--Record user username-->
+            <EditText
+                android:id="@+id/usernameInputLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:autofillHints="username"
+                android:background="@drawable/custom_edittext"
+                android:padding="5dp"
+                app:layout_constraintLeft_toLeftOf="@id/usernamePromptLogin"
+                app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
+                app:layout_constraintTop_toBottomOf="@id/usernamePromptLogin"
+                 />
 
-    <!--Submit user username and password-->
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login_button"
-        android:onClick="loginAttempt"
-        style="@style/buttonGeneral"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/passwordInputLogin"
-        android:layout_margin="15dp"/>
+            <!--Prompt user for password-->
+            <TextView
+                android:id="@+id/passwordPromptLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password_credentials"
+                app:layout_constraintLeft_toLeftOf="@id/welcomeTextLogin"
+                app:layout_constraintTop_toBottomOf="@id/usernameInputLogin"
+                android:layout_marginTop="50dp"/>
 
-    <!--Open register user activity-->
-    <Button
-        android:id="@+id/registerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:onClick="openRegisterActivity"
-        android:text="@string/new_user_button"
-        style="@style/buttonGeneral"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/loginButton" />
+            <!--Record user password-->
+            <EditText
+                android:id="@+id/passwordInputLogin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:autofillHints="password"
+                android:background="@drawable/custom_edittext"
+                android:padding="5dp"
+                app:layout_constraintLeft_toLeftOf="@id/usernamePromptLogin"
+                app:layout_constraintRight_toRightOf="@id/welcomeTextLogin"
+                app:layout_constraintTop_toBottomOf="@id/passwordPromptLogin" />
 
+            <!--Submit user username and password-->
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_button"
+                android:onClick="loginAttempt"
+                style="@style/buttonGeneral"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/passwordInputLogin"
+                android:layout_margin="15dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <!--Open register user activity-->
+            <Button
+                android:id="@+id/registerButton"
+                style="@style/invertButtonColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:onClick="openRegisterActivity"
+                android:text="@string/new_user_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/loginButton"
+                app:toggleCheckedStateOnClick="false" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

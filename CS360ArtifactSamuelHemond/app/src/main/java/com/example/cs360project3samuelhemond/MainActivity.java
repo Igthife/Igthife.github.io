@@ -12,10 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -69,6 +71,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        //set background for drawer could not find a way to complete this via XML
+        navigationView.setBackgroundColor(fetchAccentColor());
+    }
+
+    //Method to get color as an int from theme
+    private int fetchAccentColor() {
+        TypedValue typedValue = new TypedValue();
+
+        TypedArray a = this.obtainStyledAttributes(typedValue.data, new int[] { com.google.android.material.R.attr.colorContainer });
+        int color = a.getColor(0, 0);
+
+        a.recycle();
+
+        return color;
     }
 
     //Called when activity resumes or starts
@@ -118,14 +135,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     //called by button to open the dailyWeightActivity
     public void openDailyWeightActivity(View view) {
-        Intent intent = new Intent(this, dailyWeightActivity.class);
+        Intent intent = new Intent(this, DailyWeightActivity.class);
         intent.putExtra("userID", userID);//pass user id
         startActivity(intent);
     }
 
     //called by button to open the goalWeightActivity
     public void openGoalWeightActivity(View view) {
-        Intent intent = new Intent(this, goalWeightActivity.class);
+        Intent intent = new Intent(this, GoalWeightActivity.class);
         intent.putExtra("userID", userID);//pass user id
         startActivity(intent);
     }
@@ -173,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }else if(item.getItemId() == R.id.phoneNumberItem){
             //if permissions present open phone number activity else don't
             if (ContextCompat.checkSelfPermission(MainActivity.this, "android.permission.SEND_SMS") != PackageManager.PERMISSION_DENIED) {
-                Intent intent = new Intent(this, PhoneNumberInputActivity.class);
+                Intent intent = new Intent(this, PhoneNumberActivity.class);
                 intent.putExtra("userID", userID);//pass user id
                 startActivity(intent);
         }else{//If no permission inform user

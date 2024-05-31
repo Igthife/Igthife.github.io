@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CS360Project3SamuelHemond">
         <activity
+            android:name=".PhoneNumberActivity"
+            android:exported="false" />
+        <activity
             android:name=".RegisterUserActivity"
             android:exported="false" />
         <activity
-            android:name=".PhoneNumberInputActivity"
+            android:name=".DailyWeightActivity"
             android:exported="false" />
         <activity
-            android:name=".dailyWeightActivity"
-            android:exported="false" />
-        <activity
-            android:name=".goalWeightActivity"
+            android:name=".GoalWeightActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"

@@ -18,7 +18,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
-public class dailyWeightActivity extends AppCompatActivity {
+public class DailyWeightActivity extends AppCompatActivity {
     //logging tag
     private static final String TAG = "InputActivity";
     //database
@@ -77,7 +77,7 @@ public class dailyWeightActivity extends AppCompatActivity {
                 Log.i(TAG, "Daily Weight Updated");
             }
             //Send Text message if most recent input weight equals goal weight and permissions exist
-            if(ContextCompat.checkSelfPermission(dailyWeightActivity.this, "android.permission.SEND_SMS") == PackageManager.PERMISSION_GRANTED &&
+            if(ContextCompat.checkSelfPermission(DailyWeightActivity.this, "android.permission.SEND_SMS") == PackageManager.PERMISSION_GRANTED &&
                     dailyWeight.getWeight() == weightRepository.getGoalWeightById(userID).getWeight()&& weightRepository.getUserById(userID).getUserPhoneNumber() != null){
                 Toast.makeText(this, "Goal Weight Hit! Sending Text Message.",Toast.LENGTH_LONG).show();
                 SmsManager smsManager=SmsManager.getDefault();
@@ -108,7 +108,7 @@ public class dailyWeightActivity extends AppCompatActivity {
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(
                 // on below line we are passing context.
-                dailyWeightActivity.this,
+                DailyWeightActivity.this,
                 (view1, year1, monthOfYear, dayOfMonth) -> {
                     //get localDate from calender picker and set the text view to the input date
                     localDate = LocalDate.of(year1, monthOfYear + 1,dayOfMonth);

@@ -1,19 +1,23 @@
 package com.example.cs360project3samuelhemond;
 
-import android.app.Activity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class PhoneNumberInputActivity extends Activity {
-    private static final String TAG = "PhoneNumberActivity";
 
+public class PhoneNumberActivity extends AppCompatActivity {
+    private static final String TAG = "PhoneNumberActivity";
+    //setup database
     WeightRepository weightRepository;
-    Long userID;//user idea to search database
+    //user idea to search database
+    Long userID;
     //setup views
     EditText userPhoneNumber;
     TextView currentPhoneNumber;
@@ -22,6 +26,7 @@ public class PhoneNumberInputActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_number_input);
+
         //setup views
         userPhoneNumber = findViewById(R.id.numberInput);
         currentPhoneNumber = findViewById(R.id.currentNumber);
@@ -40,7 +45,6 @@ public class PhoneNumberInputActivity extends Activity {
             message = getString(R.string.current_phone_number) + weightRepository.getUserById(userID).getUserPhoneNumber();
         }
         currentPhoneNumber.setText(message);
-
     }
 
     //save phone number
@@ -55,7 +59,7 @@ public class PhoneNumberInputActivity extends Activity {
             finish(); //done with activity
         }else{
             Log.i(TAG, "Phone number invalid");
-            Toast.makeText(PhoneNumberInputActivity.this, "Invalid Phone Number", Toast.LENGTH_SHORT) .show();
+            Toast.makeText(PhoneNumberActivity.this, "Invalid Phone Number", Toast.LENGTH_SHORT) .show();
         }
     }
 
