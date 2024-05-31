@@ -96,6 +96,7 @@ public class RegisterUserActivity extends AppCompatActivity {
     private boolean validatePasswordFormat(String password){
         return true;
     }
+
     //Check valid goal weight is entered only boundary is greater than 0
     private boolean validateGoalWeightFormat(String goalWeight)
     {
