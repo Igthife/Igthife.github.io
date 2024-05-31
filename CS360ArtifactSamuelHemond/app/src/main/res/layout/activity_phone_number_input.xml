@@ -54,6 +54,8 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
+                android:background="@drawable/custom_edittext"
+                android:padding="5dp"
                 app:layout_constraintLeft_toLeftOf="@id/numberPrompt"
                 app:layout_constraintRight_toRightOf="@id/numberPrompt"
                 app:layout_constraintTop_toBottomOf="@id/numberPrompt"
