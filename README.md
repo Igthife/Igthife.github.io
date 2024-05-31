@@ -7,8 +7,6 @@ ePortfolio for CS-499 SNHU
 
 [Original Artifact](https://github.com/Igthife/Igthife.github.io/tree/main/CS360ArtifactSamuelHemond)
 
-[Original Artifact](https://materialpalettes.com/)
-
 ### Code Review
 
 [CS-360 Artifact code review used for all enhancments](https://youtu.be/2A69vkAXrOA "code review used for all enhancments")<br/>
