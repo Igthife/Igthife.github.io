@@ -67,7 +67,7 @@
                 android:id="@+id/phoneNumberButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/confirm_goal_weight"
+                android:text="@string/confirm_phone_number"
                 android:onClick="savePhoneNumber"
                 style="@style/buttonGeneral"
                 app:layout_constraintLeft_toLeftOf="parent"
