@@ -1,5 +1,7 @@
 package com.example.cs360project3samuelhemond;
 
+import static java.lang.Character.*;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -62,7 +64,8 @@ public class RegisterUserActivity extends AppCompatActivity {
         String weight = goalWeightView.getText().toString();
         String phoneNumber = phoneNumberView.getText().toString();
 
-        if(weightRepository.getUser(username, password) == null && username.length() > 0 && password.length() > 0){       //check if good to create user TODO enhancement 2 change to only check username
+        if(weightRepository.getUser(username, password) == null && username.length() > 0 && password.length() > 0
+                && validateUsernameFormat(username) && validatePasswordFormat(password)){       //check if good to create user TODO enhancement 2 change to only check username
 
             if(!validateGoalWeightFormat(weight)){ //Check for valid weight
                 weight = null;
@@ -80,7 +83,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         }else if(username.length() == 0 || password.length() == 0) {        //Additional user feedback for incorrect information and logging
             Log.i(TAG, "One Or More Input Fields Empty");
             Toast.makeText(RegisterUserActivity.this, "One Or More Input Fields Are Empty", Toast.LENGTH_SHORT).show();
-        }else{
+        }else if(weightRepository.getUser(username, password) != null){
             Log.i(TAG, "User Already Exists");
             Toast.makeText(RegisterUserActivity.this, "User Already Exists", Toast.LENGTH_SHORT).show();
         }
@@ -90,10 +93,64 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     //Check valid username is entered TODO enhancement 2
     private boolean validateUsernameFormat(String username){
+        if(username == null || username.length() < 8){
+            Toast.makeText(RegisterUserActivity.this, "No Usernames Shorter Than 8 Characters", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(username.length() > 20){
+            Toast.makeText(RegisterUserActivity.this, "No Usernames Longer Than 20 Characters", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        username = username.trim();
+        for (int i = 0; i < username.length(); i++) {
+            if(isLetter(username.charAt(i)) || isDigit(username.charAt(i))){
+
+            }else if(isWhitespace(username.charAt(i))){
+                Toast.makeText(RegisterUserActivity.this, "Spaces Not Allowed In Username", Toast.LENGTH_SHORT).show();
+                return false;
+            }else{
+                Toast.makeText(RegisterUserActivity.this, "Unexpected Input Please Try Again", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
         return true;
     }
+
     //Check valid password is entered TODO enhancement 2
     private boolean validatePasswordFormat(String password){
+        int digitCount = 0;
+        int uppercaseCount = 0;
+
+        if(password == null || password.length() < 8){
+            Toast.makeText(RegisterUserActivity.this, "No Passwords Shorter Than 8 Characters", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(password.length() > 64){
+            Toast.makeText(RegisterUserActivity.this, "No Passwords Longer Than 64 Characters", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        password = password.trim();
+        for (int i = 0; i < password.length(); i++) {
+            if(isLetter(password.charAt(i))){
+                if(isUpperCase(password.charAt(i))){
+                    uppercaseCount++;
+                }
+            }else if (isDigit(password.charAt(i))){
+                digitCount++;
+            }else if(isWhitespace(password.charAt(i))){
+                Toast.makeText(RegisterUserActivity.this, "Spaces Not Allowed In Password", Toast.LENGTH_SHORT).show();
+                return false;
+            }else{
+                Toast.makeText(RegisterUserActivity.this, "Unexpected Input Please Try Again", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+
+        if(uppercaseCount <= 0){
+            Toast.makeText(RegisterUserActivity.this, "Password Requires 1 Uppercase Letter", Toast.LENGTH_SHORT).show();
+            return false;
+        }else if(digitCount <= 0){
+            Toast.makeText(RegisterUserActivity.this, "Password Requires 1 Number", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         return true;
     }
 
@@ -125,6 +182,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         Toast.makeText(RegisterUserActivity.this, "Invalid Weight", Toast.LENGTH_SHORT).show();
         return false;
     }
+
     //Check valid phone number is entered valid in this case is numeric and 10-12 characters
     private boolean validatePhoneNumberFormat(String phoneNumber){
         String regexStr = "[0-9]{10,12}$";
