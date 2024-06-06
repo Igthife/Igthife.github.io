@@ -51,7 +51,7 @@ public class WeightRepository {
     //method to safely check if user exists without returning user TODO enhancement 2 utilize
     public Boolean checkUserByName(String userName){
 
-        return (null == mUserDao.getUserByName(userName));
+        return !(null == mUserDao.getUserByName(userName));
     }
 
     public User getUser(String userName, String password){

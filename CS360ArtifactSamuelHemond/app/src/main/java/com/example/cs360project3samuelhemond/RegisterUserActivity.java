@@ -29,6 +29,8 @@ public class RegisterUserActivity extends AppCompatActivity {
     EditText passwordView;
     EditText phoneNumberView;
     EditText goalWeightView;
+    //get encryption class
+    EncryptionAlgorithm encryptionAlgorithm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class RegisterUserActivity extends AppCompatActivity {
         //retrieve user ID from intent for uses in program
         Intent intent = getIntent();
         userID = intent.getLongExtra("userID", 0);
+        //set encryption class
+        encryptionAlgorithm = new EncryptionAlgorithm();
     }
 
     //uses login edit texts and creates user if inputs are 1 or longer and account doesn't exist
@@ -64,8 +68,14 @@ public class RegisterUserActivity extends AppCompatActivity {
         String weight = goalWeightView.getText().toString();
         String phoneNumber = phoneNumberView.getText().toString();
 
-        if(weightRepository.getUser(username, password) == null && username.length() > 0 && password.length() > 0
+        username.trim();
+        password.trim();
+
+        if(weightRepository.checkUserByName(username) == false && username.length() > 0 && password.length() > 0
                 && validateUsernameFormat(username) && validatePasswordFormat(password)){       //check if good to create user TODO enhancement 2 change to only check username
+
+            password = encryptionAlgorithm.hashSHA256(password);
+            Log.i(TAG, "SHA-256 hash: " + encryptionAlgorithm.hashSHA256(password));
 
             if(!validateGoalWeightFormat(weight)){ //Check for valid weight
                 weight = null;
@@ -86,6 +96,8 @@ public class RegisterUserActivity extends AppCompatActivity {
         }else if(weightRepository.getUser(username, password) != null){
             Log.i(TAG, "User Already Exists");
             Toast.makeText(RegisterUserActivity.this, "User Already Exists", Toast.LENGTH_SHORT).show();
+        }else{
+            Log.i(TAG, "Unknown error");
         }
 
 
@@ -108,7 +120,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                 Toast.makeText(RegisterUserActivity.this, "Spaces Not Allowed In Username", Toast.LENGTH_SHORT).show();
                 return false;
             }else{
-                Toast.makeText(RegisterUserActivity.this, "Unexpected Input Please Try Again", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterUserActivity.this, "Unexpected Username Please No Special Characters Input \n Please Try Again", Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
@@ -120,6 +132,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         int digitCount = 0;
         int uppercaseCount = 0;
 
+        //check length
         if(password == null || password.length() < 8){
             Toast.makeText(RegisterUserActivity.this, "No Passwords Shorter Than 8 Characters", Toast.LENGTH_SHORT).show();
             return false;
@@ -127,7 +140,6 @@ public class RegisterUserActivity extends AppCompatActivity {
             Toast.makeText(RegisterUserActivity.this, "No Passwords Longer Than 64 Characters", Toast.LENGTH_SHORT).show();
             return false;
         }
-        password = password.trim();
         for (int i = 0; i < password.length(); i++) {
             if(isLetter(password.charAt(i))){
                 if(isUpperCase(password.charAt(i))){
@@ -139,7 +151,7 @@ public class RegisterUserActivity extends AppCompatActivity {
                 Toast.makeText(RegisterUserActivity.this, "Spaces Not Allowed In Password", Toast.LENGTH_SHORT).show();
                 return false;
             }else{
-                Toast.makeText(RegisterUserActivity.this, "Unexpected Input Please Try Again", Toast.LENGTH_SHORT).show();
+                Toast.makeText(RegisterUserActivity.this, "Unexpected Password Input Please No Special Characters \n Please Try Again", Toast.LENGTH_SHORT).show();
                 return false;
             }
         }

@@ -15,6 +15,9 @@ public class LoginActivity extends AppCompatActivity {
     //declare views
     EditText userNameView;
     EditText passwordView;
+    //get encryption class
+    EncryptionAlgorithm encryptionAlgorithm;
+
 
 
     @Override
@@ -25,8 +28,10 @@ public class LoginActivity extends AppCompatActivity {
         userNameView = findViewById(R.id.usernameInputLogin);
         passwordView = findViewById(R.id.passwordInputLogin);
 
-        //get singleton for database
-        weightRepository = WeightRepository.getInstance(this);
+
+
+        //set encryption class
+        encryptionAlgorithm = new EncryptionAlgorithm();
     }
 
     @Override
@@ -36,12 +41,19 @@ public class LoginActivity extends AppCompatActivity {
         //set text blank on refocus
         userNameView.setText("");
         passwordView.setText("");
+
+        //get singleton for database
+        weightRepository = WeightRepository.getInstance(this);
     }
 
     //attempt to login. Limited parsing of data and not hashed password for this sized project
     public void loginAttempt(View view) {
         String username = userNameView.getText().toString();
         String password = passwordView.getText().toString();
+
+        username.trim();
+        password.trim();
+        password = encryptionAlgorithm.hashSHA256(password);
 
         User foundUser = weightRepository.getUser(username, password);
 
