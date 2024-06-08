@@ -2,7 +2,6 @@ package com.example.cs360project3samuelhemond;
 
 import static java.lang.Character.*;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -14,6 +13,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 public class RegisterUserActivity extends AppCompatActivity {
     //logging tag
@@ -31,6 +35,9 @@ public class RegisterUserActivity extends AppCompatActivity {
     EditText goalWeightView;
     //get encryption class
     EncryptionAlgorithm encryptionAlgorithm;
+    //setup variables for firebase database
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +65,10 @@ public class RegisterUserActivity extends AppCompatActivity {
         userID = intent.getLongExtra("userID", 0);
         //set encryption class
         encryptionAlgorithm = new EncryptionAlgorithm();
+
+        //get firebase database
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference(userID.toString());
     }
 
     //uses login edit texts and creates user if inputs are 1 or longer and account doesn't exist
@@ -68,11 +79,11 @@ public class RegisterUserActivity extends AppCompatActivity {
         String weight = goalWeightView.getText().toString();
         String phoneNumber = phoneNumberView.getText().toString();
 
-        username.trim();
-        password.trim();
+        username = username.trim();
+        password = password.trim();
 
         if(weightRepository.checkUserByName(username) == false && username.length() > 0 && password.length() > 0
-                && validateUsernameFormat(username) && validatePasswordFormat(password)){       //check if good to create user TODO enhancement 2 change to only check username
+                && validateUsernameFormat(username) && validatePasswordFormat(password)){       //check if good to create user
 
             password = encryptionAlgorithm.hashSHA256(password);
             Log.i(TAG, "SHA-256 hash: " + encryptionAlgorithm.hashSHA256(password));
@@ -85,8 +96,9 @@ public class RegisterUserActivity extends AppCompatActivity {
             if(!validatePhoneNumberFormat(phoneNumber)){
                 phoneNumber = null;
             }
-
+            //register user on local database
             initNewUser(username,password, weight, phoneNumber);
+
             Toast.makeText(RegisterUserActivity.this, "User Registered", Toast.LENGTH_LONG).show();
             finish(); //done with activity
 
@@ -103,7 +115,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     }
 
-    //Check valid username is entered TODO enhancement 2
+    //Check valid username is entered
     private boolean validateUsernameFormat(String username){
         if(username == null || username.length() < 8){
             Toast.makeText(RegisterUserActivity.this, "No Usernames Shorter Than 8 Characters", Toast.LENGTH_SHORT).show();
@@ -112,7 +124,7 @@ public class RegisterUserActivity extends AppCompatActivity {
             Toast.makeText(RegisterUserActivity.this, "No Usernames Longer Than 20 Characters", Toast.LENGTH_SHORT).show();
             return false;
         }
-        username = username.trim();
+
         for (int i = 0; i < username.length(); i++) {
             if(isLetter(username.charAt(i)) || isDigit(username.charAt(i))){
 
@@ -127,7 +139,7 @@ public class RegisterUserActivity extends AppCompatActivity {
         return true;
     }
 
-    //Check valid password is entered TODO enhancement 2
+    //Check valid password is entered
     private boolean validatePasswordFormat(String password){
         int digitCount = 0;
         int uppercaseCount = 0;
@@ -210,7 +222,11 @@ public class RegisterUserActivity extends AppCompatActivity {
         newUser.setUserPassword(password);
         newUser.setUserPhoneNumber(phoneNumber);        //null or valid number
         weightRepository.addUser(newUser);      //add user to database
+
         newUser = weightRepository.getUser(username, password);     //now get user back from database to get assigned id
+
+        myRef = database.getReference(newUser.getId().toString());      //get firebase database of new user
+
         GoalWeight initGoalWeight = new GoalWeight();       //setup goal weight
         if(goalWeight == null) {        //if goal weight null set 0 else set to weight value
             initGoalWeight.setWeight(0);
@@ -222,8 +238,12 @@ public class RegisterUserActivity extends AppCompatActivity {
                 Toast.makeText(RegisterUserActivity.this, "Error In Weight Please Retry", Toast.LENGTH_SHORT).show();
             }
         }
+
+        myRef.setValue(initGoalWeight.getWeight());     //Set goal weight value in firebase database
+
         initGoalWeight.setUserId(newUser.getId());      //get user id from above and use as the foreign key for goal weight
         weightRepository.addGoalWeight(initGoalWeight);     //add goal weight to database
+
     }
 
     //method called when the phoneNumberView is pressed and checks for phone permissions

@@ -29,6 +29,7 @@
     <string name="phone_number_prompt">Please enter phone number</string>
     <string name="confirm_phone_number">Submit phone number</string>
     <string name="current_phone_number">Current phone number: \u0020</string>
+    <string name="current_goal_weight">Current goal weight: \u0020</string>
     <string name="navigation_drawer_open">Setting Drawer Open</string>
     <string name="navigation_drawer_close">Setting Drawer Closed</string>
 

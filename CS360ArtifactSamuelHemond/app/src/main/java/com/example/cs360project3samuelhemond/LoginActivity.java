@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
     WeightRepository weightRepository;//database
@@ -51,8 +55,9 @@ public class LoginActivity extends AppCompatActivity {
         String username = userNameView.getText().toString();
         String password = passwordView.getText().toString();
 
-        username.trim();
-        password.trim();
+
+        username = username.trim();
+        password = password.trim();
         password = encryptionAlgorithm.hashSHA256(password);
 
         User foundUser = weightRepository.getUser(username, password);
@@ -69,8 +74,11 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+
+
     //method to open the register user activity
     public void openRegisterActivity(View view){
+
         Intent intent = new Intent(this, RegisterUserActivity.class);
         startActivity(intent);      //send intent without user info
     }

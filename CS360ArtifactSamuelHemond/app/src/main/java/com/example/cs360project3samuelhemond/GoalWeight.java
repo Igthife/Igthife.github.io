@@ -18,7 +18,7 @@ public class GoalWeight {
     @ColumnInfo(name = "weight")
     private int mWeight;
 
-    @ColumnInfo(name = "user_id")
+    @ColumnInfo(name = "user_id", index = true)
     private Long mUserId;
 
     //Setters and getters

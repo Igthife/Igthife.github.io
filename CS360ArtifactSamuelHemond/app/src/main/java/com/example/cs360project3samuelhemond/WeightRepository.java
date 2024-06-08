@@ -29,7 +29,7 @@ public class WeightRepository {
 
     //private constructor
     private WeightRepository(Context context) {
-        WeightDatabase database = Room.databaseBuilder(context, WeightDatabase.class, "weight6.db")
+        WeightDatabase database = Room.databaseBuilder(context, WeightDatabase.class, "weights.db")
                 .allowMainThreadQueries()
                 .build();
 
@@ -48,7 +48,7 @@ public class WeightRepository {
         return mUserDao.getUserById(id);
     }
 
-    //method to safely check if user exists without returning user TODO enhancement 2 utilize
+
     public Boolean checkUserByName(String userName){
 
         return !(null == mUserDao.getUserByName(userName));

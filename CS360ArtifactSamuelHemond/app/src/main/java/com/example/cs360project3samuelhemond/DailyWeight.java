@@ -23,7 +23,7 @@ public class DailyWeight {
     @ColumnInfo(name = "date")
     private LocalDate mDate;
 
-    @ColumnInfo(name = "user_id")
+    @ColumnInfo(name = "user_id", index = true)
     private Long mUserId;
 
     //Setters and getters

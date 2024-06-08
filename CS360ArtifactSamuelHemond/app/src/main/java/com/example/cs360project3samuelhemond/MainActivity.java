@@ -1,6 +1,5 @@
 package com.example.cs360project3samuelhemond;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -10,9 +9,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -24,6 +26,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -47,6 +56,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     ActionBarDrawerToggle toggle;
+
+    //setup variables for firebase database
+    FirebaseDatabase database;
+    DatabaseReference myRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +87,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //set background for drawer could not find a way to complete this via XML
         navigationView.setBackgroundColor(fetchAccentColor());
-        //navigationView.setItemTextColor(R.attr.colorContainer);
+
+
     }
 
     //Method to get color as an int from theme
@@ -202,4 +216,48 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.END);
         return true;
     }
+
+    //Method for getting goal weight from firebase database
+    private void getData() {
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // Get Long class and use it to set current goal weight textView
+                Long goalWeightFirebase = dataSnapshot.getValue(Long.class);
+                goalWeightTextView.setText(getString(R.string.current_goal_weight) + goalWeightFirebase + getString(R.string.goal_weight2));
+
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadLong:onCancelled", databaseError.toException());
+
+                String goalWeight = getString(R.string.goal_weight) +
+                        weightRepository.getGoalWeightByUserId(userID).getWeight() +
+                        getString(R.string.goal_weight2);
+
+                goalWeightTextView.setText(goalWeight);
+            }
+        });
+    }
+
+    public static boolean isNetworkAvailable(Context con) {
+        try {
+            ConnectivityManager cm = (ConnectivityManager) con
+                    .getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+
+            if (networkInfo != null && networkInfo.isConnected()) {
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
+
 }
