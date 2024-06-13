@@ -73,34 +73,35 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     //uses login edit texts and creates user if inputs are 1 or longer and account doesn't exist
     public void newUserAttempt(View view){
-        //Get strings from
+        //Get strings from inputs
         String username = userNameView.getText().toString();
         String password = passwordView.getText().toString();
         String weight = goalWeightView.getText().toString();
         String phoneNumber = phoneNumberView.getText().toString();
 
+        //Trim whitespace
         username = username.trim();
         password = password.trim();
 
+        //check for credentials formats
         if(weightRepository.checkUserByName(username) == false && username.length() > 0 && password.length() > 0
                 && validateUsernameFormat(username) && validatePasswordFormat(password)){       //check if good to create user
 
-            password = encryptionAlgorithm.hashSHA256(password);
-            Log.i(TAG, "SHA-256 hash: " + encryptionAlgorithm.hashSHA256(password));
+            password = encryptionAlgorithm.hashSHA256(password);        //hash password using custom SHA256 algorithm
 
             if(!validateGoalWeightFormat(weight)){ //Check for valid weight
                 weight = null;
             }
 
             phoneNumber = phoneNumber.replace("-", "");     //remove - char
-            if(!validatePhoneNumberFormat(phoneNumber)){
+            if(!validatePhoneNumberFormat(phoneNumber)){        //check phone number format
                 phoneNumber = null;
             }
-            //register user on local database
-            initNewUser(username,password, weight, phoneNumber);
+
+            initNewUser(username,password, weight, phoneNumber);        //register user on local database
 
             Toast.makeText(RegisterUserActivity.this, "User Registered", Toast.LENGTH_LONG).show();
-            finish(); //done with activity
+            finish();       //done with activity
 
         }else if(username.length() == 0 || password.length() == 0) {        //Additional user feedback for incorrect information and logging
             Log.i(TAG, "One Or More Input Fields Empty");
@@ -117,7 +118,7 @@ public class RegisterUserActivity extends AppCompatActivity {
 
     //Check valid username is entered
     private boolean validateUsernameFormat(String username){
-        if(username == null || username.length() < 8){
+        if(username == null || username.length() < 8){      //check length of username
             Toast.makeText(RegisterUserActivity.this, "No Usernames Shorter Than 8 Characters", Toast.LENGTH_SHORT).show();
             return false;
         }else if(username.length() > 20){
@@ -125,7 +126,7 @@ public class RegisterUserActivity extends AppCompatActivity {
             return false;
         }
 
-        for (int i = 0; i < username.length(); i++) {
+        for (int i = 0; i < username.length(); i++) {       //check format of username
             if(isLetter(username.charAt(i)) || isDigit(username.charAt(i))){
 
             }else if(isWhitespace(username.charAt(i))){

@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private int fetchAccentColor() {
         TypedValue typedValue = new TypedValue();
 
-        TypedArray a = this.obtainStyledAttributes(typedValue.data, new int[] { com.google.android.material.R.attr.colorContainer });
+        @SuppressLint("PrivateResource") TypedArray a = this.obtainStyledAttributes(typedValue.data, new int[] { com.google.android.material.R.attr.colorContainer });
         int color = a.getColor(0, 0);
 
         a.recycle();
@@ -108,8 +109,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onResume() {
         super.onResume();
         //set user goal weight to text view
-        String goalWeight = getString(R.string.goal_weight) + weightRepository.getGoalWeightByUserId(userID).getWeight() + getString(R.string.goal_weight2);
-        goalWeightTextView.setText(goalWeight);
+        //String goalWeight = getString(R.string.goal_weight) + weightRepository.getGoalWeightByUserId(userID).getWeight() + getString(R.string.goal_weight2);
+        //goalWeightTextView.setText(goalWeight);
+
+        //get firebase database
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference(userID.toString());
+
+        //updates current goal weight textView from
+        // firebase if online and by local database if offline
+        if(isNetworkAvailable(this)){
+            getData();
+        }else{
+            String goalWeight = getString(R.string.goal_weight) +
+                    weightRepository.getGoalWeightByUserId(userID).getWeight() +
+                    getString(R.string.goal_weight2);
+
+            goalWeightTextView.setText(goalWeight);
+        }
 
         //setup and use methods for the recyclerview
         weights = new ArrayList<>();
@@ -224,8 +241,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Get Long class and use it to set current goal weight textView
                 Long goalWeightFirebase = dataSnapshot.getValue(Long.class);
-                goalWeightTextView.setText(getString(R.string.current_goal_weight) + goalWeightFirebase + getString(R.string.goal_weight2));
 
+                //replace null with 0
+                if(goalWeightFirebase == null){
+                    goalWeightFirebase = 0L;
+                    myRef.setValue(0);
+                }
+                //set textview text
+                String goalWeight = getString(R.string.current_goal_weight) + goalWeightFirebase + getString(R.string.goal_weight2);
+                goalWeightTextView.setText(goalWeight);
             }
 
 

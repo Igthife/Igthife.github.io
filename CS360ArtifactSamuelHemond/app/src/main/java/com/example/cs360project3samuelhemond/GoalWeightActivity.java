@@ -102,6 +102,13 @@ public class GoalWeightActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // Get Long class and use it to set current goal weight textView
                 Long goalWeightFirebase = dataSnapshot.getValue(Long.class);
+
+                //replace null with 0
+                if(goalWeightFirebase == null){
+                    goalWeightFirebase = 0L;
+                    myRef.setValue(0);
+                }
+                //set textview text
                 String goalWeight = getString(R.string.current_goal_weight) + goalWeightFirebase + getString(R.string.goal_weight2);
                 goalWeightTextView.setText(goalWeight);
 
