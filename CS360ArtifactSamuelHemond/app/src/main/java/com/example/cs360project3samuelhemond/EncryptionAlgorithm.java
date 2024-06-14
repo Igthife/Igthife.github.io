@@ -2,7 +2,7 @@ package com.example.cs360project3samuelhemond;
 
 import android.os.Build;
 
-import androidx.annotation.RequiresApi;
+//import androidx.annotation.RequiresApi;
 
 import java.util.Arrays;
 import java.math.BigInteger;
