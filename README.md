@@ -1,7 +1,6 @@
-# Igthife.github.io
-ePortfolio for CS-499 SNHU
+# **Samuel Hemond ePortfolio**
 
-### CS-499 Capstone Project Samuel Hemond
+### CS-499 Capstone Project
 
 ### Original Artifact
 
