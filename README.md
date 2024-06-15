@@ -19,7 +19,7 @@ This artifact was created for CS-360 and SNHU and is an Android app
 
 This enhacments was focused on the design 
 
-![Base app theme](Pictures/Screenshot_Dark_Theme.png)
+![Base app theme](Pictures/Screenshot_Dark_Theme.png=750x1500)
 
 ### Enhacement II Algorithms and Data Structure
 
