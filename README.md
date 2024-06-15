@@ -19,12 +19,14 @@ This artifact was created for CS-360 and SNHU and is an Android app
 
 This enhacments was focused on the design 
 
-<img src="Pictures/Screenshot_Starting_Theme.png" width="100">
 Starting theme before enhancment.
-<img src="Pictures/Screenshot_Main_Theme.png" width="100">
+<img src="Pictures/Screenshot_Starting_Theme.png" width="100">
+
 Normal or light theme after enhancment.
-<img src="Pictures/Screenshot_Dark_Theme.png" width="100">
+<img src="Pictures/Screenshot_Main_Theme.png" width="100">
+
 Dark theme after enhancment.
+<img src="Pictures/Screenshot_Dark_Theme.png" width="100">
 
 ### Enhacement II Algorithms and Data Structure
 
