@@ -3,7 +3,7 @@
 ## CS-499 Capstone Project
 
 ## Code Review
-This is a summary of my code review SNHU's CS-499 Capstone project:
+This is a short summary of my code review video of this
 [Original Code Artifact](https://github.com/Igthife/Igthife.github.io/tree/main/CS360ArtifactSamuelHemond)
 .
 
@@ -12,7 +12,7 @@ This artifact was created for CS-360 and SNHU and is an Android app designed to 
  weight, one for entering a phone number, and finally one for entering goal or daily weights. All three of my enhancements were 
  completed on this artifact.
 
-[CS-360 Artifact video code review used for all enhancements](https://youtu.be/2A69vkAXrOA "code review used for all enhancements")<br/>
+[Video of my full code review from my CS-360 Artifact used for all enhancements](https://youtu.be/2A69vkAXrOA "code review used for all enhancements")<br/>
 
 ## Enhancement I Software Design and Engineering
 
@@ -103,7 +103,8 @@ begin with the original message of length L bits
 append a single '1' bit
 append K '0' bits, where K is the minimum number >= 0 such that (L + 1 + K + 64) is a multiple of 512
 append L as a 64-bit big-endian integer, making the total post-processed length a multiple of 512 bits
-such that the bits in the message are: <original message of length L> 1 <K zeros> <L as 64 bit integer> , (the number of bits will be a multiple of 512)
+such that the bits in the message are: <original message of length L> 1 <K zeros> <L as 64 bit integer> 
+, (the number of bits will be a multiple of 512)
 
 Process the message in successive 512-bit chunks:
 break message into 512-bit chunks
@@ -163,7 +164,7 @@ digest := hash := h0 append h1 append h2 append h3 append h4 append h5 append h6
 ### Enhancement II Links
 
 [Class containing SHA-256 hashing function](https://github.com/Igthife/Igthife.github.io/blob/Enhancment-2-Algorithm/CS360ArtifactSamuelHemond/app/src/main/java/com/example/cs360project3samuelhemond/EncryptionAlgorithm.java "Artifact after Enhancement I")<br/><br/>
-[Artifact after Enhancement II](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-2-Algorithm "Artifact after Enhancement II")<br/>
+[Artifact after Enhancement II](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-2-Algorithm "Artifact after Enhancement II")<br/><br/>
 [Full Enhancement II Narrative](CS-499_Milestone_Three_Narrative.pdf)
 
 ## Enhancement III Databases
@@ -175,3 +176,4 @@ digest := hash := h0 append h1 append h2 append h3 append h4 append h5 append h6
 >Martin , D. (2022, March 24). SHA256 algorithm explained. Sha256 Algorithm Explained. https://sha256algorithm.com/
 <br/><br/>
 >Wikimedia Foundation. (2024, June 13). SHA-2. Wikipedia. https://en.wikipedia.org/wiki/SHA-2 
+
