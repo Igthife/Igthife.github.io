@@ -19,10 +19,13 @@ This artifact was created for CS-360 and SNHU and is an Android app
 
 This enhacments was focused on the design 
 
-Starting theme before enhancment.<br/>
+Light theme before enhancment.<br/>
 <img src="Pictures/Screenshot_Starting_Theme.png" width="200">
 
-Normal or light theme after enhancment.<br/>
+Dark theme before enhancment.<br/>
+<img src="Pictures/Screenshot_Starting_Dark_Theme.png" width="200">
+
+Light theme after enhancment.<br/>
 <img src="Pictures/Screenshot_Main_Theme.png" width="200">
 
 Dark theme after enhancment.<br/>
