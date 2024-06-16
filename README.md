@@ -48,7 +48,7 @@ Drawer in dark theme after enhancement.<br/>
 
 ### Enhancement I Links
 
-[Artifact after Enhancement I](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-1-Software-Design "Artifact after Enhancement I")<br/><br/>
+[Artifact after Enhancement I](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-1-Software-Design/CS360ArtifactSamuelHemond "Artifact after Enhancement I")<br/><br/>
 [Full Enhancement I Narrative](CS-499_Milestone_Two_Narrative.pdf)
 
 ## Enhancement II Algorithms and Data Structure
