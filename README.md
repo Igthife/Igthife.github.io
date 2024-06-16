@@ -164,7 +164,7 @@ digest := hash := h0 append h1 append h2 append h3 append h4 append h5 append h6
 ### Enhancement II Links
 
 [Class containing SHA-256 hashing function](https://github.com/Igthife/Igthife.github.io/blob/Enhancment-2-Algorithm/CS360ArtifactSamuelHemond/app/src/main/java/com/example/cs360project3samuelhemond/EncryptionAlgorithm.java "Artifact after Enhancement I")<br/><br/>
-[Artifact after Enhancement II](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-2-Algorithm "Artifact after Enhancement II")<br/><br/>
+[Artifact after Enhancement II](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-2-Algorithm/CS360ArtifactSamuelHemond "Artifact after Enhancement II")<br/><br/>
 [Full Enhancement II Narrative](CS-499_Milestone_Three_Narrative.pdf)
 
 ## Enhancement III Databases
