@@ -43,7 +43,7 @@ Light theme after enhancement.<br/>
 Dark theme after enhancement.<br/>
 <img src="Pictures/Screenshot_Dark_Theme.png" width="200">
 
-Drawer in dark theme.<br/>
+Drawer in dark theme after enhancement.<br/>
 <img src="Pictures/Screenshot_Drawer.png" width="200">
 
 ### Enhancement I Links
