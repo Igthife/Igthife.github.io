@@ -1,6 +1,9 @@
 # **Samuel Hemond ePortfolio**
 
-## CS-499 Capstone Project
+## Professional Self Review
+
+
+[Professional Self Review PDF](CS-499_Professional_Self_Assessment.pdf)
 
 ## Code Review
 This is a short summary of my code review video of this
