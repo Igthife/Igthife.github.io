@@ -1,5 +1,6 @@
 # **Samuel Hemond ePortfolio**
 
+[comment]: <> (Adds table of contents to the Github pages page for https://igthife.github.io/)
 * TOC
 {:toc}
 
