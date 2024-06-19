@@ -10,7 +10,7 @@
 [Professional Self Review PDF](CS-499_Professional_Self_Assessment.pdf)
 
 ## Code Review
-# Code Review Summary 
+### Code Review Summary 
 [Original Code Artifact](https://github.com/Igthife/Igthife.github.io/tree/main/CS360ArtifactSamuelHemond)
 .
 
@@ -19,7 +19,7 @@ This artifact was created for CS-360 and SNHU and is an Android app designed to 
  weight, one for entering a phone number, and finally one for entering goal or daily weights. All three of my enhancements were 
  completed on this artifact.
 
-# Code Review Video 
+### Code Review Video 
 
 [Video of my full code review from my CS-360 Artifact used for all enhancements](https://youtu.be/2A69vkAXrOA "code review used for all enhancements")<br/>
 
