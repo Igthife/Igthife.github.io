@@ -6,6 +6,9 @@
 
 ## Professional Self Review
 
+### Professional Self Review Summary
+
+### Full Professional Self Review
 
 [Professional Self Review PDF](CS-499_Professional_Self_Assessment.pdf)
 
