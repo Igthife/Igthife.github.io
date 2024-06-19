@@ -1,5 +1,8 @@
 # **Samuel Hemond ePortfolio**
 
+* TOC
+{:toc}
+
 ## Professional Self Review
 
 
