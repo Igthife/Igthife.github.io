@@ -184,7 +184,7 @@ digest := hash := h0 append h1 append h2 append h3 append h4 append h5 append h6
  
 ### Summary
 
-For this enhancement, I chose to enhance my application’s database by implementing a portion of my database in Google's Firebase.
+For this enhancement, I chose to enhance my application’s database by implementing a portion of my database in Google's Firebase Realtime Database.
  I had no experience with Firebase going into this enhancement and decided to use it to show my ability to learn new technologies
  as well as my understanding of databases in general. Before this enhancement, I was using SQLite with Android persistence rooms
  library with 3 databases. One for users, one for goal weights, and a final one for daily weights. I only converted my goal weight
