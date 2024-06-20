@@ -197,10 +197,8 @@ For this enhancement, I chose to enhance my application’s database by implemen
 
 [Artifact after Enhancement III](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-3-Database/CS360ArtifactSamuelHemond "Artifact after Enhancement III")<br/><br/>
 [Full Enhancement III Narrative](CS-499_Milestone_Four_Narrative.pdf)
-
+[Google's Firebase](https://firebase.google.com/ "Google's Firebase")
 ## Citations
 >Martin , D. (2022, March 24). SHA256 algorithm explained. Sha256 Algorithm Explained. https://sha256algorithm.com/
 <br/><br/>
 >Wikimedia Foundation. (2024, June 13). SHA-2. Wikipedia. https://en.wikipedia.org/wiki/SHA-2 
-
-
