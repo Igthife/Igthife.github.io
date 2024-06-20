@@ -181,12 +181,26 @@ digest := hash := h0 append h1 append h2 append h3 append h4 append h5 append h6
 [Full Enhancement II Narrative](CS-499_Milestone_Three_Narrative.pdf)
 
 ## Enhancement III Databases
-
+ 
 ### Summary
 
+For this enhancement, I chose to enhance my application’s database by implementing a portion of my database in Google's Firebase.
+ I had no experience with Firebase going into this enhancement and decided to use it to show my ability to learn new technologies
+ as well as my understanding of databases in general. Before this enhancement, I was using SQLite with Android persistence rooms
+ library with 3 databases. One for users, one for goal weights, and a final one for daily weights. I only converted my goal weight
+ database for this enhancement and to get full functionality out of this enhancement I would have had to change my entire database
+ over to Firebase as I discuss more in my milestone IV Narrative. This was probably the most difficult of my enhancements even though
+ it was the enhancement with the least code written as getting my Gradle files changed again to get Firebase working on all my
+ targeted Android APIs took a large amount of trial and error.
+
+### Enhancement III Links
+
+[Artifact after Enhancement III](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-3-Database/CS360ArtifactSamuelHemond "Artifact after Enhancement III")<br/><br/>
+[Full Enhancement III Narrative](CS-499_Milestone_Four_Narrative.pdf)
 
 ## Citations
 >Martin , D. (2022, March 24). SHA256 algorithm explained. Sha256 Algorithm Explained. https://sha256algorithm.com/
 <br/><br/>
 >Wikimedia Foundation. (2024, June 13). SHA-2. Wikipedia. https://en.wikipedia.org/wiki/SHA-2 
+
 
