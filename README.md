@@ -5,13 +5,13 @@
 * TOC
 {:toc}
 
-## Professional Self Review
+## Professional Self Assessment
 
-### Professional Self Review Summary/Introduction
+### Professional Self Assessment Summary/Introduction
 Hello, my name is Samuel Hemond and I am currently a computer science major at Southern New Hampshire University (SNHU). Previously I have completed computer science classes at both Great Bay Community College (GBCC) and the University of New Hampshire (UNH). Through these classes, I have had experiences with the following programming languages, technologies, and frameworks. In no particular order, I have worked with C, C++, Java, XML, Android, React Native, Open-GL, JavaScript, Python, HTML, CSS, MySQL, SQLite, MongoDB, Google’s Firebase Realtime Database, GDScript, Leg Architecture, Assembly, Microchip programming with MPLAB X IDE, TensorFlow with Keras, as well as the MEAN stack using MongoDB, Express JS, Angular, and Nodejs.
-### Full Professional Self Review
+### Full Professional Self Assessment
 
-[Professional Self Review PDF](CS-499_Professional_Self_Assessment.pdf)
+[Professional Self Assessment PDF](CS-499_Professional_Self_Assessment.pdf)
 
 ## Code Review
 ### Code Review Summary 
