@@ -16,7 +16,6 @@ Hello, my name is Samuel Hemond and I am currently a computer science major at S
 ## Code Review
 ### Code Review Summary 
 [Original Code Artifact](https://github.com/Igthife/Igthife.github.io/tree/main/CS360ArtifactSamuelHemond)
-.
 
 This artifact was created for CS-360 and SNHU and is an Android app designed to help track daily weight measurements of a user and then text
  the user when their desired weight is hit. The starting state of the app had 4 pages. One for logging in, one for displaying weights and goal
