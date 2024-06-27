@@ -66,12 +66,11 @@ Drawer in dark theme after enhancement.<br/>
 ## Enhancement II Algorithms and Data Structure
 
 ### Summary
-For this enhancement, I completed most of my algorithm focused courses at UNH before transferring to SNHU and did not have access to my code from
-those courses. This was also a good time to implement some better security on my Android application that I worked on in the previous 
-enhancement. To this end, I wrote a SHA-256 algorithm in Java and implemented it within my application. Along with this, I added checks for
- formatting of user's usernames and passwords. While I realize usings an implementation  using standard libraries this enhancement was designed to
- show knowledge with algorithms. To this end in a production application, I would not only utilize standard cryptographically secure libraries 
- as well as proper hashing implementation.
+For this enhancement finding a good project was a little bit difficult. I completed most of my algorithm-focused courses at UNH before transferring to SNHU and did not have 
+access to my code from those courses. This was also a good time to implement some better security on my Android application that I worked on in the previous enhancement. To 
+this end, I wrote a SHA-256 algorithm in Java and implemented it within my application. Along with this, I added checks for formatting of user's usernames and passwords. While
+I realize using an implementation using standard libraries would be not only more effective and simpler, this enhancement was designed to show knowledge with algorithms. To this
+end in a production application, I would not only utilize standard cryptographically secure libraries as well as proper salting implementation.
 
 ### SHA-256 Pseudocode
 
