@@ -204,6 +204,8 @@ chosen tool and managed to get a functional prototype in two weeks with two leve
 project and involved large amounts of team work from strangers who had never worked together before ranging in ages and different
 time zones.
 
+### Game Jam 15 Links
+
 [Completed Prototype](https://an-unique-name.itch.io/attack)
 
 ## Citations
