@@ -196,6 +196,16 @@ For this enhancement, I chose to enhance my application’s database by implemen
 [Artifact after Enhancement III](https://github.com/Igthife/Igthife.github.io/tree/Enhancment-3-Database/CS360ArtifactSamuelHemond "Artifact after Enhancement III")<br/><br/>
 [Full Enhancement III Narrative](CS-499_Milestone_Four_Narrative.pdf)<br/><br/>
 [Google's Firebase](https://firebase.google.com/ "Google's Firebase")
+
+## Pirate Software - Game Jam 15
+
+This project involved designing and building a game prototype in 2 weeks with a team. My team had very little experience with our 
+chosen tool and managed to get a functional prototype in two weeks with two level and functional animations. This was an interesting
+project and involved large amounts of team work from strangers who had never worked together before ranging in ages and different
+time zones.
+
+[Completed Prototype](https://an-unique-name.itch.io/attack)
+
 ## Citations
 >Martin , D. (2022, March 24). SHA256 algorithm explained. Sha256 Algorithm Explained. https://sha256algorithm.com/
 <br/><br/>
